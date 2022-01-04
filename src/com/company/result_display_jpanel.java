@@ -20,7 +20,7 @@ public class result_display_jpanel {
         panel.add(bgImage);
         panel.repaint();
         panel.validate();
-        //panel.setVisible(true);
+        panel.setVisible(true);
 
         //panel.add(container);
     }

@@ -11,7 +11,8 @@ public class gui_main {
         new gui_left(frame,container);
         new gui_content(frame,container);
         new gui_right(frame,container);
-
+        Color wood=new Color(130, 91, 31);
+        container.setBackground(wood);
         frame.setSize(1450,1200);
         frame.setLayout(null);
         frame.setVisible(true);

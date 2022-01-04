@@ -9,16 +9,17 @@ public class search_jpanel implements ActionListener {
     JButton search_B;
     Container container;
 JFrame frame;
-    JPanel panel;
-    search_jpanel(JFrame f,Container c)
+    JPanel panel,panel_display;
+    search_jpanel(JFrame f,Container c,JPanel result_panel)
     {
         frame=f;
-
+        panel_display=result_panel;
         container=c;
         panel=new JPanel();
-        panel.setBackground(Color.blue);
+        Color wood=new Color(130, 91, 31);
+        panel.setBackground(wood);
         panel.setLayout(null);
-        panel.setBounds(360,130,400,80);
+        panel.setBounds(460,110,400,80);
 
         Font font1;
         font1=new Font("Arial",Font.PLAIN,20);
@@ -30,7 +31,7 @@ JFrame frame;
 
         ImageIcon logo=new ImageIcon("images/search.jpg");
         search_B=new JButton(logo);
-        search_B.setBounds(320,5, 5,20);
+        search_B.setBounds(310,7, 5,20);
         search_B.setFont(font1);
         search_B.setForeground(Color.RED);
         search_B.setSize(logo.getIconWidth(),logo.getIconHeight());
@@ -58,7 +59,7 @@ JFrame frame;
             JOptionPane.showMessageDialog(container,"Searched");
 
 */
-            new result_display_jpanel(container,panel);
+            new result_display_jpanel(container,panel_display);
 
 
         }

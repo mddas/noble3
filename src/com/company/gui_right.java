@@ -6,7 +6,8 @@ import java.awt.*;
 public class gui_right {
 gui_right(JFrame frame,Container container){
     JPanel panel=new JPanel();
-    panel.setBackground(Color.blue);
+    Color wood=new Color(130, 91, 31);
+    panel.setBackground(wood);
     panel.setBounds(1150,0,250,900);
     container.add(panel);
 

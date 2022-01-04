@@ -13,8 +13,9 @@ public class gui_left implements ActionListener {
         frame=f;
         container=c;
         JPanel panel=new JPanel();
-        panel.setBackground(Color.red);
-        panel.setBounds(0,0,220,800);
+        Color wood=new Color(13, 91, 31);
+        panel.setBackground(wood);
+        panel.setBounds(0,0,230,800);
         container.add(panel);
 
         //
@@ -127,7 +128,7 @@ public class gui_left implements ActionListener {
         exam_B.addActionListener(this);
         result_B.addActionListener(this);
         bill_B.addActionListener(this);
-
+        panel.setLayout(null);
         container.add(panel);
 
     }
