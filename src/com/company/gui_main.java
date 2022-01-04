@@ -1,0 +1,19 @@
+package com.company;
+
+import javax.swing.*;
+import java.awt.*;
+
+public class gui_main {
+    gui_main()
+    {
+        JFrame frame=new JFrame();
+        Container container=frame.getContentPane();
+        new gui_left(frame,container);
+        new gui_content(frame,container);
+        new gui_right(frame,container);
+
+        frame.setSize(1450,1200);
+        frame.setLayout(null);
+        frame.setVisible(true);
+    }
+}
