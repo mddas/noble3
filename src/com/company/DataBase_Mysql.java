@@ -35,12 +35,18 @@ public class DataBase_Mysql {
     public ResultSet SELECT(String sql){
         ResultSet rs=null;
         try {
+            System.out.println(sql);
             Statement stmt = con.createStatement();
             rs = stmt.executeQuery(sql);
-       //     while (rs.next())
-         //       System.out.println(rs.getInt(1) + "  " + rs.getString(2) + "  " + rs.getString(3));
-           // con.close();
+/*
+            while (rs.next())
+                System.out.println(rs.getInt(1) + "  " + rs.getString(2) + "  " + rs.getString(3));
+           con.close();
+
+ */
             return rs;
+
+
         }
         catch (Exception e) {
             System.out.println(e);

@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 public class search_jpanel implements ActionListener {
     JButton search_B;
     Container container;
-JFrame frame;
+    JFrame frame;
     JPanel panel,panel_display;
     search_jpanel(JFrame f,Container c,JPanel result_panel)
     {
@@ -45,20 +45,7 @@ JFrame frame;
 
     public void actionPerformed(ActionEvent e){
         if(e.getSource()==search_B){
-            /*
-            ImageIcon background_wood=new ImageIcon("images/wood.jpg");
-            JLabel bgImage=new JLabel("",background_wood,JLabel.LEFT);
-            bgImage.setBounds(0,0,background_wood.getIconWidth(),background_wood.getIconHeight());
-            // bgImage.setFont(font);
-            //bgImage.setForeground(red);
-            //container.add(bgImage);
-            System.out.println(background_wood.getIconWidth()+" width:height"+background_wood.getIconHeight());
-            panel.add(bgImage);
-            panel.setVisible(true);
-            panel.validate();
-            JOptionPane.showMessageDialog(container,"Searched");
 
-*/
             new result_display_jpanel(container,panel_display);
 
 

@@ -8,37 +8,63 @@ gui_right(JFrame frame,Container container){
 
     DataBase_Mysql db=new DataBase_Mysql();
     int total_student= db.Count("select Count(*) from Students");
+    String totalstudent="<html><p>"+total_student+"</p><p>total</p>student</html>";
+
+    Font font1;
+    font1=new Font("Arial",Font.PLAIN,25);
 
     JPanel panel=new JPanel();
     Color wood=new Color(13, 91, 31);
     panel.setBackground(wood);
     panel.setBounds(1150,0,250,900);
-    //panel.setLayout(null);
-    //container.add(panel);
 
-    JLabel total,newAdmisson,studentleftSchool,Income,MoneySpend;
+
+    JLabel total,total_text,newAdmisson,newAdmisson_text,studentleftSchool,Income,MoneySpend,today_present_text;
+    JLabel today_present,Income_txt;
     ImageIcon TotalLOgo = new ImageIcon("images/circle.jpg");
 
+    total_text=new JLabel(totalstudent);
+    total_text.setBounds(70,30,200,150);
+    total_text.setForeground(Color.red);
+    total_text.setFont(font1);
+    panel.add(total_text);
     total = new JLabel(TotalLOgo);
-    total.setBounds(10, 70, 200, 200);
+    total.setBounds(10, 0, 200, 200);
     total.setForeground(Color.white);
     panel.add(total);
 
+    newAdmisson_text=new JLabel(totalstudent);
+    newAdmisson_text.setBounds(70,170,200,150);
+    newAdmisson_text.setForeground(Color.red);
+    newAdmisson_text.setFont(font1);
+    panel.add(newAdmisson_text);
     newAdmisson = new JLabel(TotalLOgo);
-    newAdmisson.setBounds(1180, 70, 200, 200);
+    newAdmisson.setBounds(10, 170, 200, 200);
     newAdmisson.setForeground(Color.white);
     panel.add(newAdmisson);
 
-    studentleftSchool = new JLabel(TotalLOgo);
-    studentleftSchool.setBounds(1080, 250, 200, 200);
-    studentleftSchool.setForeground(Color.white);
-    panel.add(studentleftSchool);
+    today_present_text=new JLabel(totalstudent);
+    today_present_text.setBounds(70,360,200,150);
+    today_present_text.setForeground(Color.red);
+    today_present_text.setFont(font1);
+    panel.add(today_present_text);
+    today_present = new JLabel(TotalLOgo);
+    today_present.setBounds(10, 340, 200, 200);
+    today_present.setForeground(Color.white);
+    panel.add(today_present);
 
+    Income_txt=new JLabel(totalstudent);
+    Income_txt.setBounds(70,500,200,150);
+    Income_txt.setForeground(Color.red);
+    Income_txt.setFont(font1);
+    panel.add(Income_txt);
     Income = new JLabel(TotalLOgo);
-    Income.setBounds(1000, 430, 200, 200);
+    Income.setBounds(10, 510, 200, 200);
     Income.setForeground(Color.white);
     panel.add(Income);
-    //panel.setLayout(null);
+
+
+    panel.setLayout(null);
     container.add(panel);
 
 }
