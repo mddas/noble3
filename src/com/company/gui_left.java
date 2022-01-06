@@ -26,7 +26,8 @@ public class gui_left implements ActionListener {
         Font font,font1;
         font=new Font("Arial",Font.BOLD,20);
         font1=new Font("Arial",Font.BOLD,20);
-        ImageIcon studentsLogo,staffLogo,examLogo,resultLogo,billLogo,bgImage1,AdminLogo;
+        ImageIcon homeLogo,studentsLogo,staffLogo,examLogo,resultLogo,billLogo,bgImage1,AdminLogo;
+        homeLogo= new ImageIcon("images/home.png");
         AdminLogo=new ImageIcon("images/teacherLogo_1.png");
         studentsLogo= new ImageIcon("images/studentsLogo_2.jpg");
         staffLogo= new ImageIcon("images/teacherLogo_1.png");
@@ -47,11 +48,11 @@ public class gui_left implements ActionListener {
         profile_L_text.setFont(font1);
         profile_L_text.setForeground(white);
         panel.add(profile_L_text);
-        profile_B=new JButton(AdminLogo);
+        profile_B=new JButton(homeLogo);
         profile_B.setBounds(10,15,300,200);
         profile_B.setFont(font1);
         profile_B.setForeground(red);
-        profile_B.setSize(AdminLogo.getIconWidth(),AdminLogo.getIconHeight());
+        profile_B.setSize(homeLogo.getIconWidth(),homeLogo.getIconHeight());
         panel.add(profile_B);
 
 
@@ -146,7 +147,7 @@ public class gui_left implements ActionListener {
 
         }
         else if(e.getSource()==student_B) {
-            JOptionPane.showMessageDialog(container,"student_B");
+            //JOptionPane.showMessageDialog(container,"student_B");
             container.removeAll();
 
             new gui_left(frame,container);

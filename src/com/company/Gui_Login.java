@@ -79,7 +79,7 @@ public class Gui_Login implements ActionListener{
     }
     public void actionPerformed(ActionEvent e){
         if(e.getSource()==login){
-            JOptionPane.showMessageDialog(f,"You are login");
+           // JOptionPane.showMessageDialog(f,"You are login");
             f.dispose();
             //
             JFrame frame=new JFrame();

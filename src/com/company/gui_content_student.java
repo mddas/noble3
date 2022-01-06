@@ -5,15 +5,15 @@ import java.awt.*;
 
 public class gui_content_student {
     gui_content_student(JFrame frame, Container container) {
-    JPanel panel = new JPanel();
+        container.setBackground(Color.white);
     Color wood=new Color(130, 91, 31);
-    panel.setBackground(wood);
+
     JPanel panel_display=new JPanel();
     panel_display.setBounds(300,260,700,500);
-    panel_display.setBackground(wood);
-    //new result_display_jpanel(container,panel);
-    //new heading_jpanel(container,350,5,650,90);//this is heading
-    //new search_jpanel(frame,container,panel_display);
+
+    new gui_content_student_Advance_search(container,frame);
+    new gui_content_studentTable(container,frame);
+
     ImageIcon background_wood=new ImageIcon("images/6_1.jpg");
     JLabel bgImage=new JLabel("",background_wood,JLabel.LEFT);
     bgImage.setBounds(0,0,background_wood.getIconWidth(),background_wood.getIconHeight());
@@ -21,8 +21,6 @@ public class gui_content_student {
     //bgImage.setForeground(red);
     // container.add(bgImage);
     System.out.println(background_wood.getIconWidth()+" width:height"+background_wood.getIconHeight());
-    panel.add(bgImage);
-    container.add(panel);
     panel_display.setVisible(false);
     container.add(panel_display);
 
