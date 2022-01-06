@@ -9,7 +9,7 @@ public class gui_main {
         JFrame frame=new JFrame();
         Container container=frame.getContentPane();
         //new gui_left(frame,container);
-        //new gui_content(frame,container);
+        //new gui_content_home(frame,container);
         //new gui_right(frame,container);
         Gui_Login ob=new Gui_Login(frame);
         //ob.gui_Login_init();

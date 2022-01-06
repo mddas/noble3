@@ -3,8 +3,8 @@ package com.company;
 import javax.swing.*;
 import java.awt.*;
 
-public class gui_content {
-    gui_content(JFrame frame,Container container) {
+public class gui_content_home {
+    gui_content_home(JFrame frame, Container container) {
 
         JPanel panel = new JPanel();
         Color wood=new Color(130, 91, 31);
@@ -13,7 +13,6 @@ public class gui_content {
         JPanel panel_display=new JPanel();
         panel_display.setBounds(300,260,700,500);
         panel_display.setBackground(wood);
-        //new result_display_jpanel(container,panel);
         new heading_jpanel(container,350,5,650,90);//this is heading
         new search_jpanel(frame,container,panel_display);
 

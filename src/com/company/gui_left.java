@@ -42,7 +42,7 @@ public class gui_left implements ActionListener {
         bgimage1_L=new JLabel("Student Management",bgImage1,JLabel.LEFT);
 
 
-        profile_L_text=new JLabel("Profile");
+        profile_L_text=new JLabel("Home");
         profile_L_text.setBounds(112,-20,300,200);
         profile_L_text.setFont(font1);
         profile_L_text.setForeground(white);
@@ -130,26 +130,62 @@ public class gui_left implements ActionListener {
         bill_B.addActionListener(this);
         panel.setLayout(null);
         container.add(panel);
+        //container.setVisible(true);
 
     }
     public void actionPerformed(ActionEvent e){
         if(e.getSource()==profile_B){
             JOptionPane.showMessageDialog(container,"profile_B");
+            container.removeAll();
+
+            new gui_left(frame,container);
+            new gui_content_home(frame,container);
+            new gui_right(frame,container);
+            container.repaint();
+            container.validate();
+
         }
         else if(e.getSource()==student_B) {
             JOptionPane.showMessageDialog(container,"student_B");
+            container.removeAll();
+
+            new gui_left(frame,container);
+            new gui_content_student(frame,container);
+            container.repaint();
+            container.validate();
         }
         if(e.getSource()==staff_B){
             JOptionPane.showMessageDialog(container,"staff_B");
+            container.removeAll();
+
+            new gui_left(frame,container);
+            container.repaint();
+            container.validate();
         }
         else if(e.getSource()==exam_B) {
             JOptionPane.showMessageDialog(container,"exam_B");
+            container.removeAll();
+
+            new gui_left(frame,container);
+            new gui_content_exam(frame,container);
+            container.repaint();
+            container.validate();
         }
         if(e.getSource()==result_B){
             JOptionPane.showMessageDialog(container,"result_B");
+            container.removeAll();
+
+            new gui_left(frame,container);
+            container.repaint();
+            container.validate();
         }
         else if(e.getSource()==bill_B) {
             JOptionPane.showMessageDialog(container,"bill_B");
+            container.removeAll();
+
+            new gui_left(frame,container);
+            container.repaint();
+            container.validate();
         }
     }
     }
