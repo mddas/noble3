@@ -4,11 +4,11 @@ import javax.swing.*;
 import javax.swing.table.JTableHeader;
 import java.awt.*;
 
-public class gui_content_studentTable {
-    gui_content_studentTable(Container container,JFrame frame){
+public class result_table {
+    result_table(Container container, JFrame frame){
 
         JPanel panel=new JPanel();
-        panel.setBounds(200,130,1180,600);
+        panel.setBounds(200,160,1180,600);
         Color wood=new Color(130, 91, 31);
         panel.setBackground(wood);
 

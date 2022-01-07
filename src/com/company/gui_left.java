@@ -13,7 +13,7 @@ public class gui_left implements ActionListener {
         frame=f;
         container=c;
         JPanel panel=new JPanel();
-        Color wood=new Color(13, 91, 31);
+        Color wood=new Color(39, 40, 34);//new Color(13, 91, 31);
         panel.setBackground(wood);
         panel.setBounds(0,0,230,800);
         container.add(panel);
