@@ -6,7 +6,7 @@ import java.awt.event.*;
 
 public class Exam_Sub_menu implements ActionListener {
     JFrame frame;
-    JButton profile_B,student_B,staff_B,exam_B,result_B,bill_B,ExamManageB,AddSubjectB,AddExamB,SheatplanB;
+    JButton profile_B,result_B,ExamManageB,AddSubjectB,AddExamB,SheatplanB;
     Container container;
     Exam_Sub_menu(JFrame f,Container c){
         frame=f;
@@ -24,15 +24,11 @@ public class Exam_Sub_menu implements ActionListener {
 
         Font font,font1;
         font=new Font("Arial",Font.BOLD,20);
-        font1=new Font("Arial",Font.BOLD,20);
+        font1=new Font("Arial",Font.BOLD,14);
         ImageIcon homeLogo,studentsLogo,staffLogo,examLogo,resultLogo,billLogo,bgImage1,AdminLogo;
         homeLogo= new ImageIcon("images/home.png");
-        AdminLogo=new ImageIcon("images/teacherLogo_1.png");
-        studentsLogo= new ImageIcon("images/studentsLogo_2.jpg");
-        staffLogo= new ImageIcon("images/teacherLogo_1.png");
-        examLogo= new ImageIcon("images/ExamLogo_1.png");
         resultLogo= new ImageIcon("images/ResultLogo64.jpg");
-        billLogo= new ImageIcon("images/BillLogo_2.png");
+
         bgImage1=new ImageIcon("images/6_1.jpg");
 
         ImageIcon newadmisson=new ImageIcon("images/newadmisson.png");
@@ -59,77 +55,62 @@ public class Exam_Sub_menu implements ActionListener {
         profile_B.setSize(homeLogo.getIconWidth()+60,homeLogo.getIconHeight());
         panel.add(profile_B);
 
-        exam_L_text=new JLabel("Exam");
-        exam_L_text.setBounds(112,87,300,200);
-        exam_L_text.setFont(font1);
-        exam_L_text.setForeground(white);
-        panel.add(exam_L_text);
-        exam_B=new JButton(examLogo);
-        exam_B.setBounds(10,130,300,200);
-        exam_B.setFont(font1);
-        exam_B.setForeground(red);
-        exam_B.setSize(ExamManageLogo.getIconWidth(),ExamManageLogo.getIconHeight());
-        panel.add(exam_B);
+        ExamManageL=new JLabel("Exam Manage");
+        ExamManageL.setBounds(112,87,300,200);
+        ExamManageL.setFont(font1);
+        ExamManageL.setForeground(white);
+        panel.add(ExamManageL);
+        ExamManageB=new JButton(ExamManageLogo);
+        ExamManageB.setBounds(10,130,300,200);
+        ExamManageB.setFont(font1);
+        ExamManageB.setForeground(red);
+        ExamManageB.setSize(ExamManageLogo.getIconWidth(),ExamManageLogo.getIconHeight());
+        panel.add(ExamManageB);
 
         result_L_text=new JLabel("Result");
-        result_L_text.setBounds(112,195,300,200);
+        result_L_text.setBounds(112,150,300,200);
         result_L_text.setFont(font1);
         result_L_text.setForeground(white);
         panel.add(result_L_text);
         result_B=new JButton(resultLogo);
-        result_B.setBounds(10,238,300,200);
+        result_B.setBounds(10,210,300,200);
         result_B.setFont(font1);
         result_B.setForeground(red);
         result_B.setSize(ExamManageLogo.getIconWidth(),ExamManageLogo.getIconHeight()+10);
         panel.add(result_B);
 
 
-
-        ExamManageL=new JLabel("Exam Manage");
-        ExamManageL.setBounds(112,280,300,200);
-        ExamManageL.setFont(font1);
-        ExamManageL.setForeground(white);
-        panel.add(ExamManageL);
-        ExamManageB=new JButton(ExamManageLogo);
-        ExamManageB.setBounds(10,345,300,200);
-        ExamManageB.setFont(font1);
-        ExamManageB.setForeground(red);
-        ExamManageB.setSize(ExamManageLogo.getIconWidth(),ExamManageLogo.getIconHeight());
-        panel.add(ExamManageB);
-
-        System.out.println(ExamManageLogo.getIconWidth()+"::"+ExamManageLogo.getIconHeight());
-
         AddExamL=new JLabel("Add Exam");
-        AddExamL.setBounds(112,395,300,200);
+        AddExamL.setBounds(112,230,300,200);
         AddExamL.setFont(font1);
         AddExamL.setForeground(white);
         panel.add(AddExamL);
         AddExamB=new JButton(newadmisson);
-        AddExamB.setBounds(10,435,300,200);
+        AddExamB.setBounds(10,300,300,200);
         AddExamB.setFont(font1);
         AddExamB.setForeground(red);
         AddExamB.setSize(ExamManageLogo.getIconWidth(),ExamManageLogo.getIconHeight());
         panel.add(AddExamB);
 
-        AddSubjectL=new JLabel("Add subject");
-        AddSubjectL.setBounds(112,515,500,500);
+        AddSubjectL=new JLabel("Add Class subject");
+        AddSubjectL.setBounds(112,320,300,200);
         AddSubjectL.setFont(font1);
         AddSubjectL.setForeground(white);
         panel.add(AddSubjectL);
         AddSubjectB=new JButton(newadmisson);
-        AddSubjectB.setBounds(10,510,550,500);
+        AddSubjectB.setBounds(10,380,300,200);
         AddSubjectB.setFont(font1);
         AddSubjectB.setForeground(red);
         AddSubjectB.setSize(ExamManageLogo.getIconWidth(),ExamManageLogo.getIconHeight());
         panel.add(AddSubjectB);
 
         SheatplanL=new JLabel("Sheat generate");
-        SheatplanL.setBounds(112,560,500,500);
+        SheatplanL.setBounds(112,400,300,200);
         SheatplanL.setFont(font1);
         SheatplanL.setForeground(white);
         panel.add(SheatplanL);
         SheatplanB=new JButton(sheat_generateLogo);
-        SheatplanB.setBounds(10,580,550,500);
+        SheatplanB.setBounds(10,460,300,200);
         SheatplanB.setFont(font1);
         SheatplanB.setForeground(red);
         SheatplanB.setSize(ExamManageLogo.getIconWidth(),ExamManageLogo.getIconHeight());
@@ -141,17 +122,18 @@ public class Exam_Sub_menu implements ActionListener {
         container.validate();
 
         profile_B.addActionListener(this);//this is ActionListener
-        student_B.addActionListener(this);
-        staff_B.addActionListener(this);
-        exam_B.addActionListener(this);
+        ExamManageB.addActionListener(this);
+        AddExamB.addActionListener(this);
+
+        AddSubjectB.addActionListener(this);
+        SheatplanB.addActionListener(this);
         result_B.addActionListener(this);
-        bill_B.addActionListener(this);
+
 
 
     }
     public void actionPerformed(ActionEvent e){
         if(e.getSource()==profile_B){
-            JOptionPane.showMessageDialog(container,"profile_B");
             container.removeAll();
 
             new gui_left(frame,container);
@@ -161,47 +143,38 @@ public class Exam_Sub_menu implements ActionListener {
             container.validate();
 
         }
-        else if(e.getSource()==student_B) {
-            //JOptionPane.showMessageDialog(container,"student_B");
-            container.removeAll();
-
-            new gui_left(frame,container);
-            new gui_content_student(frame,container);
-            container.repaint();
-            container.validate();
-        }
-        if(e.getSource()==staff_B){
-            JOptionPane.showMessageDialog(container,"staff_B");
-            container.removeAll();
-
-            new gui_left(frame,container);
-            container.repaint();
-            container.validate();
-        }
-        else if(e.getSource()==exam_B) {
-            //JOptionPane.showMessageDialog(container,"exam_B");
-            container.removeAll();
-
-            new Exam_Sub_menu(frame,container);
-            //new gui_content_exam(frame,container);
-            container.repaint();
-            container.validate();
-        }
         if(e.getSource()==result_B){
-            JOptionPane.showMessageDialog(container,"result_B");
+            JOptionPane.showMessageDialog(container,"Result");
+        }
+
+        if(e.getSource()==ExamManageB){
             container.removeAll();
 
-            new gui_left(frame,container);
+            new gui_content_exam(frame,container);
+            container.repaint();
+            container.validate();
+
+        }
+        else if(e.getSource()==AddExamB) {
+            container.removeAll();
+            new Exam_Sub_menu(frame,container);
+            new add_exam(container,frame);
             container.repaint();
             container.validate();
         }
-        else if(e.getSource()==bill_B) {
-            JOptionPane.showMessageDialog(container,"bill_B");
-            container.removeAll();
 
-            new gui_left(frame,container);
+        else if(e.getSource()==AddSubjectB) {
+            JOptionPane.showMessageDialog(container,"add subject");
+            container.removeAll();
+            //new exam_add_class_subject_pop(container);
+            new Exam_Sub_menu(frame,container);
+            new exam_add_class_header(container,frame);
+            new exam_class_subject_table(container,frame);
             container.repaint();
             container.validate();
+        }
+        else if(e.getSource()==SheatplanB) {
+            JOptionPane.showMessageDialog(container,"sheat plan");
         }
     }
 }

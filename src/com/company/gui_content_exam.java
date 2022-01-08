@@ -11,12 +11,11 @@ public class gui_content_exam {
             JPanel panel_display=new JPanel();
             panel_display.setBounds(300,260,700,500);
             panel_display.setBackground(wood);
-
+            new Exam_Sub_menu(frame,container);
             new result_search(container,frame);
             new result_table(container,frame);
 
             container.add(panel);
-            panel_display.setVisible(false);
             container.add(panel_display);
 
         }

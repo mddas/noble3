@@ -11,8 +11,8 @@ public class DataBase_Mysql {
 
         try {
 
-            Class.forName("com.mysql.jdbc.Driver");
-            this.con = DriverManager.getConnection("jdbc:mysql://localhost/Noble", "root", "");
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            this.con = DriverManager.getConnection("jdbc:mysql://167.99.251.30/noblesch_noble", "noblesch_mddas", "9808059156@");
             System.out.println("[OK] Database mysql connection Successfully");
         }
         catch (Exception e){
@@ -23,7 +23,7 @@ public class DataBase_Mysql {
         Connection con = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/Noble", "root", "");
+            con = DriverManager.getConnection("jdbc:mysql://167.99.251.30/noblesch_Noble", "mddas", "32p2K@45ZlMe");
             return (ConnectionImpl) con;
 
         } catch (Exception e) {
