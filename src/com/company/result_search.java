@@ -5,7 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class result_search implements ActionListener {
-    JButton search_B,NewRegister,ExamManageB,sheatPlanB;
+    JButton search_B,NewRegister,ExamManageB,sheatPlanB,viewResultB;
     Container container;
     JFrame frame;
     result_search(Container c,JFrame f){
@@ -25,14 +25,17 @@ public class result_search implements ActionListener {
         ImageIcon newadmisson=new ImageIcon("images/newadmisson.png");
         ImageIcon ExamManageLogo=new ImageIcon("images/examManage.png");
         ImageIcon sheat_generateLogo=new ImageIcon("images/sheatPlan.jpg");
+        ImageIcon ResultLogo=new ImageIcon("images/ResultLogo64.jpg");
 
 
-        JLabel clas,rol,addResult,sheatPlanL,ExammanagerL;
+        JLabel clas,rol,addResult,sheatPlanL,ExammanagerL,viewResultL;
 
         ExamManageB=new JButton(ExamManageLogo);
         sheatPlanB=new JButton(sheat_generateLogo);
         ExammanagerL=new JLabel("Exam Manage:");
         sheatPlanL=new JLabel("Sheat Plan");
+        viewResultB=new JButton(ResultLogo);
+        viewResultL=new JLabel("View Result:");
 
         ExammanagerL.setForeground(Color.white);
         ExammanagerL.setFont(font1);
@@ -51,6 +54,15 @@ public class result_search implements ActionListener {
         sheatPlanB.setBounds(480,2,200,10);
         sheatPlanB.setSize(sheat_generateLogo.getIconWidth(),sheat_generateLogo.getIconHeight());
         panel.add(sheatPlanB);
+
+        viewResultL.setForeground(Color.white);
+        viewResultL.setFont(font1);
+        viewResultL.setBounds(650,5,200,50);
+        panel.add(viewResultL);
+
+        viewResultB.setBounds(800,2,200,10);
+        viewResultB.setSize(ResultLogo.getIconWidth(),ResultLogo.getIconHeight());
+        panel.add(viewResultB);
 
 
         clas=new JLabel("class:");
@@ -121,7 +133,11 @@ public class result_search implements ActionListener {
 
         }
         else if (e.getSource()==ExamManageB){
-            JOptionPane.showMessageDialog(container,"ExamManageB");
+            //JOptionPane.showMessageDialog(container,"ExamManageB");
+            container.remove(2);
+            new exam_manage(container,frame);
+            //container.repaint();
+            //container.validate();
         }
         else  if (e.getSource()==sheatPlanB){
             JOptionPane.showMessageDialog(container,"sheatPlanB");

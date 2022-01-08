@@ -1,22 +1,21 @@
 package com.company;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
 
-public class gui_left implements ActionListener {
+public class Exam_Sub_menu implements ActionListener {
     JFrame frame;
-    JButton profile_B,student_B,staff_B,exam_B,result_B,bill_B;
+    JButton profile_B,student_B,staff_B,exam_B,result_B,bill_B,ExamManageB,AddSubjectB,AddExamB,SheatplanB;
     Container container;
-    gui_left(JFrame f,Container c){
+    Exam_Sub_menu(JFrame f,Container c){
         frame=f;
         container=c;
         JPanel panel=new JPanel();
         Color wood=new Color(39, 40, 34);//new Color(13, 91, 31);
         panel.setBackground(wood);
         panel.setBounds(0,0,230,800);
-        container.add(panel);
+        panel.setLayout(null);
 
         //
         Color white,red;
@@ -32,12 +31,17 @@ public class gui_left implements ActionListener {
         studentsLogo= new ImageIcon("images/studentsLogo_2.jpg");
         staffLogo= new ImageIcon("images/teacherLogo_1.png");
         examLogo= new ImageIcon("images/ExamLogo_1.png");
-        resultLogo= new ImageIcon("images/ResultLogo_1.jpg");
+        resultLogo= new ImageIcon("images/ResultLogo64.jpg");
         billLogo= new ImageIcon("images/BillLogo_2.png");
         bgImage1=new ImageIcon("images/6_1.jpg");
 
+        ImageIcon newadmisson=new ImageIcon("images/newadmisson.png");
+        ImageIcon ExamManageLogo=new ImageIcon("images/examManage.png");
+        ImageIcon sheat_generateLogo=new ImageIcon("images/sheatPlan.jpg");
+        ImageIcon ResultLogo=new ImageIcon("images/ResultLogo64.jpg");
+
         JLabel bgimage1_L;
-        JLabel profile_L_text,student_L_text,staff_L_text,exam_L_text,result_L_text,bill_L_text;
+        JLabel profile_L_text,ExamManageL,exam_L_text,AddExamL,AddSubjectL,result_L_text,SheatplanL;
 
 
         bgimage1_L=new JLabel("Student Management",bgImage1,JLabel.LEFT);
@@ -47,81 +51,94 @@ public class gui_left implements ActionListener {
         profile_L_text.setBounds(112,-20,300,200);
         profile_L_text.setFont(font1);
         profile_L_text.setForeground(white);
-        panel.add(profile_L_text);
+        //panel.add(profile_L_text);
         profile_B=new JButton(homeLogo);
-        profile_B.setBounds(10,15,300,200);
+        profile_B.setBounds(30,15,300,200);
         profile_B.setFont(font1);
         profile_B.setForeground(red);
-        profile_B.setSize(homeLogo.getIconWidth(),homeLogo.getIconHeight());
+        profile_B.setSize(homeLogo.getIconWidth()+60,homeLogo.getIconHeight());
         panel.add(profile_B);
 
-
-        student_L_text=new JLabel("student");
-        student_L_text.setBounds(112,87,300,200);
-        student_L_text.setFont(font1);
-        student_L_text.setForeground(white);
-        panel.add(student_L_text);
-        student_B=new JButton(studentsLogo);
-        student_B.setBounds(10,130,300,200);
-        student_B.setFont(font1);
-        student_B.setForeground(red);
-        student_B.setSize(studentsLogo.getIconWidth(),studentsLogo.getIconHeight());
-        panel.add(student_B);
-
-
-
-        bill_L_text=new JLabel("Bill");
-        bill_L_text.setBounds(112,195,300,200);
-        bill_L_text.setFont(font1);
-        bill_L_text.setForeground(white);
-        panel.add(bill_L_text);
-        bill_B=new JButton(billLogo);
-        bill_B.setBounds(10,238,300,200);
-        bill_B.setFont(font1);
-        bill_B.setForeground(red);
-        bill_B.setSize(billLogo.getIconWidth(),billLogo.getIconHeight());
-        panel.add(bill_B);
-
-        staff_L_text=new JLabel("Staff");
-        staff_L_text.setBounds(112,305,300,200);
-        staff_L_text.setFont(font1);
-        staff_L_text.setForeground(white);
-        panel.add(staff_L_text);
-        staff_B=new JButton(staffLogo);
-        staff_B.setBounds(10,345,300,200);
-        staff_B.setFont(font1);
-        staff_B.setForeground(red);
-        staff_B.setSize(staffLogo.getIconWidth(),staffLogo.getIconHeight());
-        panel.add(staff_B);
-
         exam_L_text=new JLabel("Exam");
-        exam_L_text.setBounds(112,407,300,200);
+        exam_L_text.setBounds(112,87,300,200);
         exam_L_text.setFont(font1);
         exam_L_text.setForeground(white);
         panel.add(exam_L_text);
         exam_B=new JButton(examLogo);
-        exam_B.setBounds(10,460,300,200);
+        exam_B.setBounds(10,130,300,200);
         exam_B.setFont(font1);
         exam_B.setForeground(red);
-        exam_B.setSize(examLogo.getIconWidth(),examLogo.getIconHeight());
+        exam_B.setSize(ExamManageLogo.getIconWidth(),ExamManageLogo.getIconHeight());
         panel.add(exam_B);
 
         result_L_text=new JLabel("Result");
-        result_L_text.setBounds(112,370,500,500);
+        result_L_text.setBounds(112,195,300,200);
         result_L_text.setFont(font1);
         result_L_text.setForeground(white);
         panel.add(result_L_text);
         result_B=new JButton(resultLogo);
-        result_B.setBounds(10,570,550,500);
+        result_B.setBounds(10,238,300,200);
         result_B.setFont(font1);
         result_B.setForeground(red);
-        result_B.setSize(resultLogo.getIconWidth(),resultLogo.getIconHeight());
+        result_B.setSize(ExamManageLogo.getIconWidth(),ExamManageLogo.getIconHeight()+10);
         panel.add(result_B);
 
-        bgimage1_L.setBounds(0,0,bgImage1.getIconWidth(),bgImage1.getIconHeight());
-        bgimage1_L.setFont(font);
-        bgimage1_L.setForeground(red);
-        // f.add(bgimage1_L);
+
+
+        ExamManageL=new JLabel("Exam Manage");
+        ExamManageL.setBounds(112,280,300,200);
+        ExamManageL.setFont(font1);
+        ExamManageL.setForeground(white);
+        panel.add(ExamManageL);
+        ExamManageB=new JButton(ExamManageLogo);
+        ExamManageB.setBounds(10,345,300,200);
+        ExamManageB.setFont(font1);
+        ExamManageB.setForeground(red);
+        ExamManageB.setSize(ExamManageLogo.getIconWidth(),ExamManageLogo.getIconHeight());
+        panel.add(ExamManageB);
+
+        System.out.println(ExamManageLogo.getIconWidth()+"::"+ExamManageLogo.getIconHeight());
+
+        AddExamL=new JLabel("Add Exam");
+        AddExamL.setBounds(112,395,300,200);
+        AddExamL.setFont(font1);
+        AddExamL.setForeground(white);
+        panel.add(AddExamL);
+        AddExamB=new JButton(newadmisson);
+        AddExamB.setBounds(10,435,300,200);
+        AddExamB.setFont(font1);
+        AddExamB.setForeground(red);
+        AddExamB.setSize(ExamManageLogo.getIconWidth(),ExamManageLogo.getIconHeight());
+        panel.add(AddExamB);
+
+        AddSubjectL=new JLabel("Add subject");
+        AddSubjectL.setBounds(112,515,500,500);
+        AddSubjectL.setFont(font1);
+        AddSubjectL.setForeground(white);
+        panel.add(AddSubjectL);
+        AddSubjectB=new JButton(newadmisson);
+        AddSubjectB.setBounds(10,510,550,500);
+        AddSubjectB.setFont(font1);
+        AddSubjectB.setForeground(red);
+        AddSubjectB.setSize(ExamManageLogo.getIconWidth(),ExamManageLogo.getIconHeight());
+        panel.add(AddSubjectB);
+
+        SheatplanL=new JLabel("Sheat generate");
+        SheatplanL.setBounds(112,560,500,500);
+        SheatplanL.setFont(font1);
+        SheatplanL.setForeground(white);
+        panel.add(SheatplanL);
+        SheatplanB=new JButton(sheat_generateLogo);
+        SheatplanB.setBounds(10,580,550,500);
+        SheatplanB.setFont(font1);
+        SheatplanB.setForeground(red);
+        SheatplanB.setSize(ExamManageLogo.getIconWidth(),ExamManageLogo.getIconHeight());
+        panel.add(SheatplanB);
+
+
+        container.add(panel);
+        container.repaint();
+        container.validate();
 
         profile_B.addActionListener(this);//this is ActionListener
         student_B.addActionListener(this);
@@ -129,9 +146,7 @@ public class gui_left implements ActionListener {
         exam_B.addActionListener(this);
         result_B.addActionListener(this);
         bill_B.addActionListener(this);
-        panel.setLayout(null);
-        container.add(panel);
-        //container.setVisible(true);
+
 
     }
     public void actionPerformed(ActionEvent e){
@@ -189,5 +204,6 @@ public class gui_left implements ActionListener {
             container.validate();
         }
     }
-    }
+}
+
 
