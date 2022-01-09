@@ -8,8 +8,9 @@ public class exam_add_class_subject_pop {
     exam_add_class_subject_pop(Container c){
         container=c;
         Font font=new Font("Arial",Font.PLAIN,16);
-        JTextField first_name_form,Last_name_form,class_form,roll_form,address_form,parents_form,mobileNumber_form,age_form,email_form;
-        JLabel first_nameL,Last_nameL,clasL,roll_L,addresL,parentsL,mobileNumberL,ageL,emailL;
+        JTextField class_jt,subject_1_jt,subject_2_jt,subject_3_jt,subject_4_jt;
+        JTextField subject_5_jt,subject_6_jt,subject_7_jt,subject_8_jt,subject_9_jt,subject_10_jt;
+        JLabel class_L,subject_1_L,subject_2_L,subject_3_L,subject_4_L,subject_5_L,subject_6_L,subject_7_L,subject_8_L,subject_9_L,subject_10_L;
         JButton submit;
         JPopupMenu popupmenu = new JPopupMenu("Edit");
         JPanel panel=new JPanel();
@@ -22,131 +23,161 @@ public class exam_add_class_subject_pop {
         constraints.insets = new Insets(22,2,22,10);//top,left,bottm,right
 
         constraints.gridx = 0;constraints.gridy = 0;
-        first_nameL=new JLabel("First Name");
-        first_nameL.setForeground(Color.white);
-        panel.add(first_nameL,constraints);
+        class_L=new JLabel("Class");
+        class_L.setForeground(Color.white);
+        panel.add(class_L,constraints);
 
         constraints.ipady = 20;
         constraints.ipadx = 200;
         constraints.gridx = 1;constraints.gridy = 0;
-        first_name_form=new JTextField();
-        first_name_form.setFont(font);
-        panel.add(first_name_form,constraints);
+        class_jt=new JTextField();
+        class_jt.setFont(font);
+        panel.add(class_jt,constraints);
 
         constraints.ipady = 0;
         constraints.ipadx = 0;
         constraints.gridx = 2;constraints.gridy = 0;
-        Last_nameL=new JLabel("Last Name");
-        Last_nameL.setForeground(Color.white);
-        panel.add(Last_nameL,constraints);
+        subject_1_L=new JLabel("subject-1");
+        subject_1_L.setForeground(Color.white);
+        panel.add(subject_1_L,constraints);
         // increases components height by 50 pixels
         constraints.ipady = 20;
         constraints.ipadx = 200;
         constraints.gridx = 3;constraints.gridy = 0;
-        Last_name_form=new JTextField();
-        Last_name_form.setFont(font);
-        panel.add(Last_name_form,constraints);
+        subject_1_jt=new JTextField();
+        subject_1_jt.setFont(font);
+        panel.add(subject_1_jt,constraints);
 
         constraints.ipady = 0;
         constraints.ipadx = 0;
         constraints.gridx = 4;constraints.gridy = 0;
-        clasL=new JLabel("Class");
-        clasL.setForeground(Color.white);
-        panel.add(clasL,constraints);
+        subject_2_L=new JLabel("subject-2");
+        subject_2_L.setForeground(Color.white);
+        panel.add(subject_2_L,constraints);
         // increases components height by 50 pixels
         constraints.ipady = 20;
         constraints.ipadx = 200;
         constraints.gridx = 5;constraints.gridy = 0;
-        class_form=new JTextField();
-        class_form.setFont(font);
-        panel.add(class_form,constraints);
+        subject_2_jt=new JTextField();
+        subject_2_jt.setFont(font);
+        panel.add(subject_2_jt,constraints);
 
         constraints.ipady = 0;
         constraints.ipadx = 0;
         constraints.gridx = 0;constraints.gridy = 1;
-        roll_L=new JLabel("Roll No");
-        roll_L.setForeground(Color.white);
-        panel.add(roll_L,constraints);
+        subject_3_L=new JLabel("subject-3");
+        subject_3_L.setForeground(Color.white);
+        panel.add(subject_3_L,constraints);
         // increases components height by 50 pixels
         constraints.ipady = 20;
         constraints.ipadx = 200;
         constraints.gridx = 1;constraints.gridy = 1;
-        roll_form=new JTextField();
-        roll_form.setFont(font);
-        panel.add(roll_form,constraints);
+        subject_3_jt=new JTextField();
+        subject_3_jt.setFont(font);
+        panel.add(subject_3_jt,constraints);
 
         constraints.ipady = 0;
         constraints.ipadx = 0;
         constraints.gridx = 2;constraints.gridy = 1;
-        addresL=new JLabel("Address");
-        addresL.setForeground(Color.white);
-        panel.add(addresL,constraints);
+        subject_4_L=new JLabel("subject-4");
+        subject_4_L.setForeground(Color.white);
+        panel.add(subject_4_L,constraints);
         // increases components height by 50 pixels
         constraints.ipady = 20;
         constraints.ipadx = 200;
         constraints.gridx = 3;constraints.gridy = 1;
-        address_form=new JTextField();
-        address_form.setFont(font);
-        panel.add(address_form,constraints);
+        subject_4_jt=new JTextField();
+        subject_4_jt.setFont(font);
+        panel.add(subject_4_jt,constraints);
 
         constraints.ipady = 0;
         constraints.ipadx = 0;
         constraints.gridx = 4;constraints.gridy = 1;
-        parentsL=new JLabel("Parrents");
-        parentsL.setForeground(Color.white);
-        panel.add(parentsL,constraints);
+        subject_5_L=new JLabel("subject-5");
+        subject_5_L.setForeground(Color.white);
+        panel.add(subject_5_L,constraints);
         // increases components height by 50 pixels
         constraints.ipady = 20;
         constraints.ipadx = 200;
         constraints.gridx = 5;constraints.gridy = 1;
-        parents_form=new JTextField();
-        parents_form.setFont(font);
-        panel.add(parents_form,constraints);
+        subject_5_jt=new JTextField();
+        subject_5_jt.setFont(font);
+        panel.add(subject_5_jt,constraints);
 
         //here
         constraints.ipady = 0;
         constraints.ipadx = 0;
         constraints.gridx = 0;constraints.gridy = 2;
-        mobileNumberL=new JLabel("Mobile Number");
-        mobileNumberL.setForeground(Color.white);
-        panel.add(mobileNumberL,constraints);
+        subject_6_L=new JLabel("subject-6");
+        subject_6_L.setForeground(Color.white);
+        panel.add(subject_6_L,constraints);
         // increases components height by 50 pixels
         constraints.ipady = 20;
         constraints.ipadx = 200;
         constraints.gridx = 1;constraints.gridy = 2;
-        mobileNumber_form=new JTextField();
-        mobileNumber_form.setFont(font);
-        panel.add(mobileNumber_form,constraints);
+        subject_6_jt=new JTextField();
+        subject_6_jt.setFont(font);
+        panel.add(subject_6_jt,constraints);
 
         constraints.ipady = 0;
         constraints.ipadx = 0;
         constraints.gridx = 2;constraints.gridy = 2;
-        ageL=new JLabel("Age");
-        ageL.setForeground(Color.white);
-        panel.add(ageL,constraints);
+        subject_7_L=new JLabel("subject-7");
+        subject_7_L.setForeground(Color.white);
+        panel.add(subject_7_L,constraints);
         // increases components height by 50 pixels
         constraints.ipady = 20;
         constraints.ipadx = 200;
         constraints.gridx = 3;constraints.gridy = 2;
-        age_form=new JTextField();
-        age_form.setFont(font);
-        panel.add(age_form,constraints);
+        subject_7_jt=new JTextField();
+        subject_7_jt.setFont(font);
+        panel.add(subject_7_jt,constraints);
 
         constraints.ipady = 0;
         constraints.ipadx = 0;
         constraints.gridx = 4;constraints.gridy = 2;
-        emailL=new JLabel("Email");
-        emailL.setForeground(Color.white);
-        panel.add(emailL,constraints);
+        subject_8_L=new JLabel("subject-8");
+        subject_8_L.setForeground(Color.white);
+        panel.add(subject_8_L,constraints);
         // increases components height by 50 pixels
         constraints.ipady = 20;
         constraints.ipadx = 200;
         constraints.gridx = 5;constraints.gridy = 2;
-        email_form=new JTextField();
-        email_form.setFont(font);
-        panel.add(email_form,constraints);
+        subject_8_jt=new JTextField();
+        subject_8_jt.setFont(font);
+        panel.add(subject_8_jt,constraints);
 
-        constraints.gridx=2;constraints.gridy=3;
+        constraints.ipady = 0;
+        constraints.ipadx = 0;
+        constraints.gridx = 0;constraints.gridy = 3;
+        subject_9_L=new JLabel("subject-9");
+        subject_9_L.setForeground(Color.white);
+        panel.add(subject_9_L,constraints);
+        // increases components height by 50 pixels
+        constraints.ipady = 20;
+        constraints.ipadx = 200;
+        constraints.gridx = 1;constraints.gridy = 3;
+        subject_9_jt=new JTextField();
+        subject_9_jt.setFont(font);
+        panel.add(subject_9_jt,constraints);
+
+        constraints.ipady = 0;
+        constraints.ipadx = 0;
+        constraints.gridx = 2;constraints.gridy = 3;
+        subject_10_L=new JLabel("subject-10");
+        subject_10_L.setForeground(Color.white);
+        panel.add(subject_10_L,constraints);
+        // increases components height by 50 pixels
+        constraints.ipady = 20;
+        constraints.ipadx = 200;
+        constraints.gridx = 3;constraints.gridy = 3;
+        subject_10_jt=new JTextField();
+        subject_10_jt.setFont(font);
+        panel.add(subject_10_jt,constraints);
+
+
+
+        constraints.gridx=4;constraints.gridy=3;
         submit=new JButton("Submit");
         submit.setForeground(Color.white);
         submit.setBackground(Color.blue);
