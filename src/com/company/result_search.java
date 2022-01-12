@@ -23,7 +23,7 @@ public class result_search implements ActionListener {
 
         ImageIcon searchLogo=new ImageIcon("images/search.jpg");
         ImageIcon newadmisson=new ImageIcon("images/newadmisson.png");
-        ImageIcon ExamManageLogo=new ImageIcon("images/examManage.png");
+        ImageIcon ExamManageLogo=new ImageIcon("images/newadmisson.png");
         ImageIcon sheat_generateLogo=new ImageIcon("images/sheatPlan.jpg");
         ImageIcon ResultLogo=new ImageIcon("images/ResultLogo64.jpg");
 
@@ -32,7 +32,7 @@ public class result_search implements ActionListener {
 
         ExamManageB=new JButton(ExamManageLogo);
         sheatPlanB=new JButton(sheat_generateLogo);
-        ExammanagerL=new JLabel("Exam Manage:");
+        ExammanagerL=new JLabel("Exam Add:");
         sheatPlanL=new JLabel("Sheat Plan");
         viewResultB=new JButton(ResultLogo);
         viewResultL=new JLabel("View Result:");
@@ -133,11 +133,12 @@ public class result_search implements ActionListener {
 
         }
         else if (e.getSource()==ExamManageB){
-            //JOptionPane.showMessageDialog(container,"ExamManageB");
-            container.remove(2);
-            new exam_manage(container,frame);
-            //container.repaint();
-            //container.validate();
+            JOptionPane.showMessageDialog(container,"ExamManageB");
+            container.removeAll();
+            new Exam_Sub_menu(frame,container);
+            new exam_add_exam(container,frame);
+            container.repaint();
+            container.validate();
         }
         else  if (e.getSource()==sheatPlanB){
             JOptionPane.showMessageDialog(container,"sheatPlanB");

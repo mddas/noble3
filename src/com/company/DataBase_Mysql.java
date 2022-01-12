@@ -41,12 +41,8 @@ public class DataBase_Mysql {
 /*
             while (rs.next())
                 System.out.println(rs.getInt(1) + "  " + rs.getString(2) + "  " + rs.getString(3));
-           con.close();
-
- */
+           con.close(); */
             return rs;
-
-
         }
         catch (Exception e) {
             System.out.println(e);
@@ -60,12 +56,22 @@ public class DataBase_Mysql {
             rs = stmt.executeQuery(sql);
             rs.next();
             int count = rs.getInt(1);
-            System.out.println("Number of records in the cricketers_data table: "+count);
+            System.out.println("Number of records in the table: "+count);
            return count;
         }
         catch (Exception e) {
             System.out.println(e);
         }
         return 0;
+    }
+    public void Insert(String sql){
+        try {
+            System.out.println(sql);
+            Statement stmt = con.createStatement();
+            stmt.executeUpdate(sql);
+        }
+        catch (Exception e) {
+            System.out.println(e);
+        }
     }
 }

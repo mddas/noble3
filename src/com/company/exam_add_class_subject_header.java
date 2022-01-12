@@ -5,11 +5,11 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class exam_add_class_header implements ActionListener {
+public class exam_add_class_subject_header implements ActionListener {
     JButton search_B,NewRegister,ExamManageB,sheatPlanB,viewResultB;
     Container container;
     JFrame frame;
-    exam_add_class_header(Container c,JFrame f){
+    exam_add_class_subject_header(Container c, JFrame f){
     frame=f;
     container=c;
     JPanel panel=new JPanel();
@@ -23,14 +23,12 @@ public class exam_add_class_header implements ActionListener {
 
             ImageIcon searchLogo=new ImageIcon("images/search.jpg");
             ImageIcon newadmisson=new ImageIcon("images/newadmisson.png");
-            ImageIcon ExamManageLogo=new ImageIcon("images/examManage.png");
             ImageIcon sheat_generateLogo=new ImageIcon("images/sheatPlan.jpg");
             ImageIcon ResultLogo=new ImageIcon("images/ResultLogo64.jpg");
 
-
             JLabel clas,rol,addResult;
 
-            ExamManageB=new JButton(ExamManageLogo);
+
             sheatPlanB=new JButton(sheat_generateLogo);
             viewResultB=new JButton(ResultLogo);
 
@@ -88,7 +86,6 @@ public class exam_add_class_header implements ActionListener {
 
             NewRegister.addActionListener(this);
             search_B.addActionListener(this);
-            ExamManageB.addActionListener(this);
             sheatPlanB.addActionListener(this);
 
             container.add(panel);
@@ -105,16 +102,7 @@ public class exam_add_class_header implements ActionListener {
                 //JOptionPane.showMessageDialog(container,"NewAddmisson");
 
             }
-            else if (e.getSource()==ExamManageB){
-                //JOptionPane.showMessageDialog(container,"ExamManageB");
-                container.remove(2);
-                new exam_manage(container,frame);
-                //container.repaint();
-                //container.validate();
-            }
-            else  if (e.getSource()==sheatPlanB){
-                JOptionPane.showMessageDialog(container,"sheatPlanB");
-            }
+
         }
     }
 
