@@ -20,12 +20,20 @@ public class Exam_pass_mark_with_subject implements ActionListener {
     Exam_pass_mark_with_subject(Container c, JFrame f){
         container=c;
         frame=f;
+        JLabel subject_L,fullMark_L;
+        Color color=new Color(13,91,31);
+
+        JPanel panel0=new JPanel();
+        panel0.setLayout(new GridBagLayout());
+        GridBagConstraints constraints1=new GridBagConstraints();
+        panel0.setBackground(color);
+        panel0.setBounds(400,10,800,100);
+        constraints1.insets = new Insets(10,5,2,20);//top,left,bottm,right
 
         Font font=new Font("Arial",Font.PLAIN,16);
         JPanel panel=new JPanel();
-        Color color=new Color(13,91,31);
         panel.setBackground(color);
-        panel.setBounds(450,50,900,450);
+        panel.setBounds(400,100,800,450);
 
         panel.setLayout(new GridBagLayout());
         GridBagConstraints constraints=new GridBagConstraints();
@@ -34,30 +42,57 @@ public class Exam_pass_mark_with_subject implements ActionListener {
         constraints.ipady = 20;
         constraints.ipadx = 100;
         constraints.gridx = 0;constraints.gridy = 0;
-        year=new JTextField();
-        year.setFont(font);
-        panel.add(year,constraints);
+        String Years[]={"2077","2078","2079","2080","2081","2082","2083","NONE"};
+        JComboBox optionYear=new JComboBox(Years);
+        panel0.add(optionYear,constraints);
 
         constraints.ipady = 20;
         constraints.ipadx = 100;
         constraints.gridx = 1;constraints.gridy = 0;
         terminal=new JTextField();
         terminal.setFont(font);
-        panel.add(terminal,constraints);
+        panel0.add(terminal,constraints);
 
-        constraints.ipady = 0;
-        constraints.ipadx = 0;
-        constraints.gridx = 2;constraints.gridy = 0;
-        class_L=new JLabel("Class");
-        class_L.setForeground(Color.white);
-        panel.add(class_L,constraints);
 
         constraints.ipady = 20;
         constraints.ipadx = 200;
         constraints.gridx = 3;constraints.gridy = 0;
-        class_jt=new JTextField();
-        class_jt.setFont(font);
-        panel.add(class_jt,constraints);
+        String clas_s[]={"Nursery","LKG","UKG","ONE","TWO","THREE","FOUR","SIX","SEVEN","EIGHT","NINE","TEN","NONE"};
+        JComboBox optionClass=new JComboBox(clas_s);                                //class_jt.setToolTipText("I love you");
+        panel0.add(optionClass,constraints);
+
+        constraints.ipady = 20;
+        constraints.ipadx = 20;
+        constraints.gridx = 0;constraints.gridy = 0;
+        subject_L=new JLabel("Subject");
+        subject_L.setFont(font);
+        subject_L.setForeground(color.white);
+        panel.add(subject_L,constraints);
+
+        constraints.ipady = 20;
+        constraints.ipadx = 20;
+        constraints.gridx = 1;constraints.gridy = 0;
+        fullMark_L=new JLabel("Full mark");
+        fullMark_L.setFont(font);
+        fullMark_L.setForeground(Color.white);
+        panel.add(fullMark_L,constraints);
+
+        constraints.ipady = 20;
+        constraints.ipadx = 20;
+        constraints.gridx = 2;constraints.gridy = 0;
+        subject_L=new JLabel("Subject");
+        subject_L.setFont(font);
+        subject_L.setForeground(Color.white);
+        panel.add(subject_L,constraints);
+
+        constraints.ipady = 20;
+        constraints.ipadx = 20;
+        constraints.gridx = 3;constraints.gridy = 0;
+        fullMark_L=new JLabel("Full mark");
+        fullMark_L.setFont(font);
+        fullMark_L.setForeground(Color.white);
+        panel.add(fullMark_L,constraints);
+
 
         constraints.ipady = 20;
         constraints.ipadx = 200;
@@ -208,6 +243,7 @@ public class Exam_pass_mark_with_subject implements ActionListener {
         submit.setBackground(Color.blue);
         panel.add(submit,constraints);
 
+        container.add(panel0);
         container.add(panel);
 
         submit.addActionListener(this);
