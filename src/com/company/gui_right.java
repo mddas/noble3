@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class gui_right {
-gui_right(JFrame frame,Container container){
+public gui_right(JFrame frame, Container container){
 
     DataBase_Mysql db=new DataBase_Mysql();
     int total_student= db.Count("select Count(*) from Students");

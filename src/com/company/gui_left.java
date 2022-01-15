@@ -1,4 +1,5 @@
 package com.company;
+import Exam.Exam_Sub_menu;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,7 +10,7 @@ public class gui_left implements ActionListener {
     JFrame frame;
     JButton profile_B,student_B,staff_B,exam_B,result_B,bill_B;
     Container container;
-    gui_left(JFrame f,Container c){
+    public gui_left(JFrame f, Container c){
         frame=f;
         container=c;
         JPanel panel=new JPanel();

@@ -1,4 +1,4 @@
-package com.company;
+package Exam;
 
 import javax.swing.*;
 import javax.swing.table.JTableHeader;

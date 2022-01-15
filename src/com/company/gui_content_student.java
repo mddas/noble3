@@ -1,5 +1,7 @@
 package com.company;
 
+import Exam.gui_content_student_Advance_search;
+
 import javax.swing.*;
 import java.awt.*;
 

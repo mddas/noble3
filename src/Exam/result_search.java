@@ -1,4 +1,8 @@
-package com.company;
+package Exam;
+import Exam.Exam_Sub_menu;
+import Exam.exam_add_exam;
+import com.company.NewAdmisson;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -128,7 +132,7 @@ public class result_search implements ActionListener {
         }
         else if(e.getSource()==NewRegister){
 
-            new NewAdmisson(container);
+            //new NewAdmisson(container);
             //JOptionPane.showMessageDialog(container,"NewAddmisson");
 
         }

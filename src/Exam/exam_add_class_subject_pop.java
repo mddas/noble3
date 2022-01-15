@@ -1,4 +1,6 @@
-package com.company;
+package Exam;
+
+import com.company.DataBase_Mysql;
 
 import javax.swing.*;
 import java.awt.*;

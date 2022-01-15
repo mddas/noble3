@@ -1,4 +1,10 @@
-package com.company;
+package Exam;
+import com.company.*;
+import com.company.gui_content_home;
+import com.company.gui_left;
+import com.company.gui_right;
+
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -8,7 +14,7 @@ public class Exam_Sub_menu implements ActionListener {
     JFrame frame;
     JButton profile_B,result_B,ExamManageB,AddSubjectB,AddExamB,SheatplanB,Exam_pass_mark_with_subject_B;
     Container container;
-    Exam_Sub_menu(JFrame f,Container c){
+   public Exam_Sub_menu(JFrame f,Container c){
         frame=f;
         container=c;
         JPanel panel=new JPanel();

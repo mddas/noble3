@@ -1,4 +1,6 @@
-package com.company;
+package Exam;
+
+import com.company.NewAdmisson;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,7 +11,7 @@ public class gui_content_student_Advance_search implements ActionListener {
     JButton search_B,NewRegister;
     Container container;
     JFrame frame;
-    gui_content_student_Advance_search(Container c,JFrame f){
+    public gui_content_student_Advance_search(Container c,JFrame f){
         frame=f;
         container=c;
 

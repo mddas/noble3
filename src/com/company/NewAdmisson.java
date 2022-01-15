@@ -4,7 +4,7 @@ import java.awt.*;
 
 public class NewAdmisson {
     Container container;
-    NewAdmisson(Container c){
+    public NewAdmisson(Container c){
         container=c;
         Font font=new Font("Arial",Font.PLAIN,16);
         JTextField first_name_form,Last_name_form,class_form,roll_form,address_form,parents_form,mobileNumber_form,age_form,email_form;

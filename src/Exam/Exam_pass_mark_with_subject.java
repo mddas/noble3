@@ -1,4 +1,6 @@
-package com.company;
+package Exam;
+
+import com.company.DataBase_Mysql;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,6 +11,8 @@ public class Exam_pass_mark_with_subject implements ActionListener {
     Container container;
     JFrame frame;
     JButton submit;
+    JLabel subject_L,fullMark_L;
+    JComboBox optionYear,optionClass;
 
     JTextField class_jt,subject_1_jt,subject_2_jt,subject_3_jt,subject_4_jt;
     JTextField subject_5_jt,subject_6_jt,subject_7_jt,subject_8_jt,subject_9_jt,subject_10_jt;
@@ -20,7 +24,7 @@ public class Exam_pass_mark_with_subject implements ActionListener {
     Exam_pass_mark_with_subject(Container c, JFrame f){
         container=c;
         frame=f;
-        JLabel subject_L,fullMark_L;
+
         Color color=new Color(13,91,31);
 
         JPanel panel0=new JPanel();
@@ -43,7 +47,7 @@ public class Exam_pass_mark_with_subject implements ActionListener {
         constraints.ipadx = 100;
         constraints.gridx = 0;constraints.gridy = 0;
         String Years[]={"2077","2078","2079","2080","2081","2082","2083","NONE"};
-        JComboBox optionYear=new JComboBox(Years);
+        optionYear=new JComboBox(Years);
         panel0.add(optionYear,constraints);
 
         constraints.ipady = 20;
@@ -58,7 +62,7 @@ public class Exam_pass_mark_with_subject implements ActionListener {
         constraints.ipadx = 200;
         constraints.gridx = 3;constraints.gridy = 0;
         String clas_s[]={"Nursery","LKG","UKG","ONE","TWO","THREE","FOUR","SIX","SEVEN","EIGHT","NINE","TEN","NONE"};
-        JComboBox optionClass=new JComboBox(clas_s);                                //class_jt.setToolTipText("I love you");
+        optionClass=new JComboBox(clas_s);                                //class_jt.setToolTipText("I love you");
         panel0.add(optionClass,constraints);
 
         constraints.ipady = 20;
@@ -252,11 +256,10 @@ public class Exam_pass_mark_with_subject implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == submit) {
 
-            String which_year = year.getText();
-
+            String which_year = optionYear.getSelectedItem().toString();
             String which_terminal = terminal.getText();
 
-            String Classp = class_jt.getText();
+            String Classp = optionClass.getSelectedItem().toString();
 
             String sub_1 = subject_1_jt.getText();
             int sub_1_fm=0;
