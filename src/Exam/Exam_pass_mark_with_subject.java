@@ -6,19 +6,21 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 
-public class Exam_pass_mark_with_subject implements ActionListener {
+public class Exam_pass_mark_with_subject implements ActionListener,ItemListener {
     Container container;
     JFrame frame;
     JButton submit;
     JLabel subject_L,fullMark_L;
-    JComboBox optionYear,optionClass;
+    JComboBox optionYear,optionClass,terminal;
 
     JTextField class_jt,subject_1_jt,subject_2_jt,subject_3_jt,subject_4_jt;
     JTextField subject_5_jt,subject_6_jt,subject_7_jt,subject_8_jt,subject_9_jt,subject_10_jt;
     JTextField subject_1_fm_jt,subject_2_fm_jt,subject_3_fm_jt,subject_4_fm_jt,subject_5_fm_jt;
     JTextField subject_6_fm_jt,subject_7_fm_jt,subject_8_fm_jt,subject_9_fm_jt,subject_10_fm_jt;
-    JTextField year,terminal;
+    JTextField year;
 
     JLabel class_L,subject_1_L,subject_2_L,subject_3_L,subject_4_L,subject_5_L,subject_6_L,subject_7_L,subject_8_L,subject_9_L,subject_10_L;
     Exam_pass_mark_with_subject(Container c, JFrame f){
@@ -46,14 +48,16 @@ public class Exam_pass_mark_with_subject implements ActionListener {
         constraints.ipady = 20;
         constraints.ipadx = 100;
         constraints.gridx = 0;constraints.gridy = 0;
-        String Years[]={"2077","2078","2079","2080","2081","2082","2083","NONE"};
+        String Years[]={"2078","2079","2080","2081","2082","2083"};
         optionYear=new JComboBox(Years);
         panel0.add(optionYear,constraints);
 
         constraints.ipady = 20;
         constraints.ipadx = 100;
         constraints.gridx = 1;constraints.gridy = 0;
-        terminal=new JTextField();
+        String Terminal_s[]={"NONE","First Terminal","Second Terminal","Third Termnal","Final Terminal"};
+        terminal=new JComboBox(Terminal_s);
+
         terminal.setFont(font);
         panel0.add(terminal,constraints);
 
@@ -61,7 +65,7 @@ public class Exam_pass_mark_with_subject implements ActionListener {
         constraints.ipady = 20;
         constraints.ipadx = 200;
         constraints.gridx = 3;constraints.gridy = 0;
-        String clas_s[]={"Nursery","LKG","UKG","ONE","TWO","THREE","FOUR","SIX","SEVEN","EIGHT","NINE","TEN","NONE"};
+        String clas_s[]={"NONE","Nursery","LKG","UKG","ONE","TWO","THREE","FOUR","SIX","SEVEN","EIGHT","NINE","TEN"};
         optionClass=new JComboBox(clas_s);                                //class_jt.setToolTipText("I love you");
         panel0.add(optionClass,constraints);
 
@@ -250,86 +254,103 @@ public class Exam_pass_mark_with_subject implements ActionListener {
         container.add(panel0);
         container.add(panel);
 
+        optionClass.addItemListener(this);
+        terminal.addItemListener(this);
+
         submit.addActionListener(this);
 
+
     }
+
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == submit) {
 
             String which_year = optionYear.getSelectedItem().toString();
-            String which_terminal = terminal.getText();
+            String which_terminal = terminal.getSelectedItem().toString();
 
             String Classp = optionClass.getSelectedItem().toString();
+            if(which_terminal=="NONE" || Classp=="NONE"){
+                JOptionPane.showMessageDialog(container, "Empty can not submit");
+            }
+            else {
 
-            String sub_1 = subject_1_jt.getText();
-            int sub_1_fm=0;
-            if (subject_1_fm_jt.getText().isEmpty()==false){
-                sub_1_fm=Integer.parseInt(subject_1_fm_jt.getText());
+                String sub_1 = subject_1_jt.getText();
+                int sub_1_fm = 0;
+                if (subject_1_fm_jt.getText().isEmpty() == false) {
+                    sub_1_fm = Integer.parseInt(subject_1_fm_jt.getText());
+                }
+
+                String sub_2 = subject_2_jt.getText();
+                int sub_2_fm = 0;
+                if (subject_2_fm_jt.getText().isEmpty() == false) {
+                    sub_2_fm = Integer.parseInt(subject_2_fm_jt.getText());
+                }
+
+                String sub_3 = subject_3_jt.getText();
+                int sub_3_fm = 0;
+                if (subject_3_fm_jt.getText().isEmpty() == false) {
+                    sub_3_fm = Integer.parseInt(subject_3_fm_jt.getText());
+                }
+
+                String sub_4 = subject_4_jt.getText();
+                int sub_4_fm = 0;
+                if (subject_4_fm_jt.getText().isEmpty() == false) {
+                    sub_4_fm = Integer.parseInt(subject_4_fm_jt.getText());
+                }
+
+                String sub_5 = subject_5_jt.getText();
+                int sub_5_fm = 0;
+                if (subject_5_fm_jt.getText().isEmpty() == false) {
+                    sub_5_fm = Integer.parseInt(subject_5_fm_jt.getText());
+                }
+
+                String sub_6 = subject_6_jt.getText();
+                int sub_6_fm = 0;
+                if (subject_6_fm_jt.getText().isEmpty() == false) {
+                    sub_6_fm = Integer.parseInt(subject_6_fm_jt.getText());
+                }
+
+                String sub_7 = subject_7_jt.getText();
+                int sub_7_fm = 0;
+                if (subject_7_fm_jt.getText().isEmpty() == false) {
+                    sub_7_fm = Integer.parseInt(subject_7_fm_jt.getText());
+                }
+
+                String sub_8 = subject_8_jt.getText();
+                int sub_8_fm = 0;
+                if (subject_8_fm_jt.getText().isEmpty() == false) {
+                    sub_8_fm = Integer.parseInt(subject_8_fm_jt.getText());
+                }
+
+                String sub_9 = subject_9_jt.getText();
+                int sub_9_fm = 0;
+                if (subject_9_fm_jt.getText().isEmpty() == false) {
+                    sub_9_fm = Integer.parseInt(subject_9_fm_jt.getText());
+                }
+
+                String sub_10 = subject_10_jt.getText();
+                int sub_10_fm = 0;
+                if (subject_10_fm_jt.getText().isEmpty() == false) {
+                    sub_10_fm = Integer.parseInt(subject_10_fm_jt.getText());
+                }
+
+                //DataBase_Mysql db = new DataBase_Mysql();
+
+
+                //JOptionPane.showMessageDialog(container, Classp);
+                // String sql = "INSERT INTO `class_subject`(`ClassName`, `sub_1`, `sub_2`, `sub_3`, `sub_4`, `sub_5`, `sub_6`, `sub_7`, `sub_8`, `sub_9`, `sub_10`) VALUES ('" + Classp + "','" + sub_1 + "','" + sub_2 + "','" + sub_3 + "','" + sub_4 + "','" + sub_5 + "','" + sub_6 + "','" + sub_7 + "','" + sub_8 + "','" + sub_9 + "','" + sub_10 + "')";
+                String sql = "INSERT INTO `full_marks`(`year`, `Terminal`, `ClassName`, `sub_1`, `sub_1_fm`, `sub_2`, `sub_2_fm`, `sub_3`, `sub_3_fm`, `sub_4`, `sub_4_fm`, `sub_5`, `sub_5_fm`, `sub_6`, `sub_6_fm`, `sub_7`, `sub_7_fm`, `sub_8`, `sub_8_fm`, `sub_9`, `sub_9_fm`, `sub_10`, `sub_10_fm`) VALUES ('" + which_year + "','" + which_terminal + "','" + Classp + "','" + sub_1 + "','" + sub_1_fm + "','" + sub_2 + "','" + sub_2_fm + "','" + sub_3 + "','" + sub_3_fm + "','" + sub_4 + "','" + sub_4_fm + "','" + sub_5 + "','" + sub_5_fm + "','" + sub_6 + "','" + sub_6_fm + "','" + sub_7 + "','" + sub_7_fm + "','" + sub_8 + "','" + sub_8_fm + "','" + sub_9 + "','" + sub_9_fm + "','" + sub_10 + "','" + sub_10_fm + "')";
+                DataBase_Mysql.Insert(sql);
             }
 
-            String sub_2 = subject_2_jt.getText();
-            int sub_2_fm=0;
-            if (subject_2_fm_jt.getText().isEmpty()==false){
-                sub_2_fm=Integer.parseInt(subject_2_fm_jt.getText());
-            }
 
-            String sub_3 = subject_3_jt.getText();
-            int sub_3_fm=0;
-            if (subject_3_fm_jt.getText().isEmpty()==false){
-                sub_3_fm=Integer.parseInt(subject_3_fm_jt.getText());
-            }
-
-            String sub_4 = subject_4_jt.getText();
-            int sub_4_fm=0;
-            if (subject_4_fm_jt.getText().isEmpty()==false){
-                sub_4_fm=Integer.parseInt(subject_4_fm_jt.getText());
-            }
-
-            String sub_5 = subject_5_jt.getText();
-            int sub_5_fm=0;
-            if (subject_5_fm_jt.getText().isEmpty()==false){
-                sub_5_fm=Integer.parseInt(subject_5_fm_jt.getText());
-            }
-
-            String sub_6 = subject_6_jt.getText();
-            int sub_6_fm=0;
-            if (subject_6_fm_jt.getText().isEmpty()==false){
-                sub_6_fm=Integer.parseInt(subject_6_fm_jt.getText());
-            }
-
-            String sub_7 = subject_7_jt.getText();
-            int sub_7_fm=0;
-            if (subject_7_fm_jt.getText().isEmpty()==false){
-                sub_7_fm=Integer.parseInt(subject_7_fm_jt.getText());
-            }
-
-            String sub_8 = subject_8_jt.getText();
-            int sub_8_fm=0;
-            if (subject_8_fm_jt.getText().isEmpty()==false){
-                sub_8_fm=Integer.parseInt(subject_8_fm_jt.getText());
-            }
-
-            String sub_9 = subject_9_jt.getText();
-            int sub_9_fm=0;
-            if (subject_9_fm_jt.getText().isEmpty()==false){
-                sub_9_fm=Integer.parseInt(subject_9_fm_jt.getText());
-            }
-
-            String sub_10 = subject_10_jt.getText();
-            int sub_10_fm=0;
-            if (subject_10_fm_jt.getText().isEmpty()==false){
-                sub_10_fm=Integer.parseInt(subject_10_fm_jt.getText());
-            }
-
-            DataBase_Mysql db = new DataBase_Mysql();
-
-
-            //JOptionPane.showMessageDialog(container, Classp);
-           // String sql = "INSERT INTO `class_subject`(`ClassName`, `sub_1`, `sub_2`, `sub_3`, `sub_4`, `sub_5`, `sub_6`, `sub_7`, `sub_8`, `sub_9`, `sub_10`) VALUES ('" + Classp + "','" + sub_1 + "','" + sub_2 + "','" + sub_3 + "','" + sub_4 + "','" + sub_5 + "','" + sub_6 + "','" + sub_7 + "','" + sub_8 + "','" + sub_9 + "','" + sub_10 + "')";
-            String sql="INSERT INTO `full_marks`(`year`, `Terminal`, `ClassName`, `sub_1`, `sub_1_fm`, `sub_2`, `sub_2_fm`, `sub_3`, `sub_3_fm`, `sub_4`, `sub_4_fm`, `sub_5`, `sub_5_fm`, `sub_6`, `sub_6_fm`, `sub_7`, `sub_7_fm`, `sub_8`, `sub_8_fm`, `sub_9`, `sub_9_fm`, `sub_10`, `sub_10_fm`) VALUES ('"+which_year+"','"+which_terminal+"','"+Classp+"','"+sub_1+"','"+sub_1_fm+"','"+sub_2+"','"+sub_2_fm+"','"+sub_3+"','"+sub_3_fm+"','"+sub_4+"','"+sub_4_fm+"','"+sub_5+"','"+sub_5_fm+"','"+sub_6+"','"+sub_6_fm+"','"+sub_7+"','"+sub_7_fm+"','"+sub_8+"','"+sub_8_fm+"','"+sub_9+"','"+sub_9_fm+"','"+sub_10+"','"+sub_10_fm+"')";
-            db.Insert(sql);
-
-
+        }
+    }
+    @Override
+    public void itemStateChanged(ItemEvent itemEvent) {
+        System.out.println("item changed");
+        if (optionClass.getSelectedItem().toString()=="NONE" || terminal.getSelectedItem().toString()=="NONE"){
+            //JOptionPane.showMessageDialog(container, "Empty can not submit");
         }
     }
 }

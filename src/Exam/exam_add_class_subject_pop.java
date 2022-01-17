@@ -207,10 +207,10 @@ public class exam_add_class_subject_pop implements ActionListener {
             String sub_8 = subject_8_jt.getText();
             String sub_9 = subject_9_jt.getText();
             String sub_10 = subject_10_jt.getText();
-            DataBase_Mysql db=new DataBase_Mysql();
+            //DataBase_Mysql db=new DataBase_Mysql();
             JOptionPane.showMessageDialog(container,Classp);
             String sql="INSERT INTO `class_subject`(`ClassName`, `sub_1`, `sub_2`, `sub_3`, `sub_4`, `sub_5`, `sub_6`, `sub_7`, `sub_8`, `sub_9`, `sub_10`) VALUES ('"+Classp+"','"+sub_1+"','"+sub_2+"','"+sub_3+"','"+sub_4+"','"+sub_5+"','"+sub_6+"','"+sub_7+"','"+sub_8+"','"+sub_9+"','"+sub_10+"')";
-            db.Insert(sql);
+            DataBase_Mysql.Insert(sql);
 
 
         }

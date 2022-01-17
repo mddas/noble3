@@ -132,7 +132,7 @@ public class result_search implements ActionListener {
         }
         else if(e.getSource()==NewRegister){
 
-            //new NewAdmisson(container);
+            new AddResult(container,frame);
             //JOptionPane.showMessageDialog(container,"NewAddmisson");
 
         }

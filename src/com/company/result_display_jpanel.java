@@ -18,8 +18,8 @@ public class result_display_jpanel {
         try {
             ResultSet rs;
             System.out.println("hiii");
-            DataBase_Mysql db = new DataBase_Mysql();
-            rs = db.SELECT("SELECT * FROM `Students`");
+            //DataBase_Mysql db = new DataBase_Mysql();
+            rs = DataBase_Mysql.SELECT("SELECT * FROM `Students`");
 
             while (rs.next()){
                 names=rs.getString("Student_Name")+"<br>"+names+"";

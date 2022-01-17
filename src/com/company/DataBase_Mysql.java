@@ -1,40 +1,45 @@
 package com.company;
-import com.mysql.cj.jdbc.ConnectionImpl;
-
 import java.sql.*;
 import java.sql.DriverManager;
 import java.sql.Connection;
 
 public class DataBase_Mysql {
-    Connection con = null;
+   public static Connection con;
     public DataBase_Mysql(){
 
         try {
 
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            this.con = DriverManager.getConnection("jdbc:mysql://167.99.251.30/noblesch_noble", "noblesch_mddas", "9808059156@");
-            System.out.println("[OK] Database mysql connection Successfully");
+            Class.forName("org.sqlite.JDBC");
+            //this is for mysqlserver database
+            con = DriverManager.getConnection("jdbc:mysql://167.99.251.30/noblesch_noble", "noblesch_mddas", "9808059156@");
+            //this is for sqlite database
+            //con =DriverManager.getConnection("jdbc:sqlite:Database/NobleSchool.sqlite");
+            System.out.println("[OK] Database mysql connection Successfully"+ con);
         }
         catch (Exception e){
             System.out.println("[FAILED] Database connection constructor ."+e);
         }
     }
-    public ConnectionImpl Mysql_Connection() {
+
+    public static Connection Mysql_Connection() {
         Connection con = null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://167.99.251.30/noblesch_Noble", "mddas", "32p2K@45ZlMe");
-            return (ConnectionImpl) con;
 
-        } catch (Exception e) {
-            System.out.println(e);
+            //Class.forName("org.sqlite.JDBC");
+            con = DriverManager.getConnection("jdbc:mysql://167.99.251.30/noblesch_noble", "noblesch_mddas", "9808059156@");
+            //con =DriverManager.getConnection("jdbc:sqlite:Database/NobleSchool.sqlite");
+            System.out.println("[OK] Database mysql connection Successfully"+ con);
         }
-        return (ConnectionImpl) con;
+        catch (Exception e){
+            System.out.println("[FAILED] Database connection constructor ."+e);
+        }
+        return  con;
     }
 
-    public ResultSet SELECT(String sql){
+    public static ResultSet SELECT(String sql){
         ResultSet rs=null;
         try {
+            Connection con=DataBase_Mysql.con;
             System.out.println(sql);
             Statement stmt = con.createStatement();
             rs = stmt.executeQuery(sql);
@@ -45,13 +50,14 @@ public class DataBase_Mysql {
             return rs;
         }
         catch (Exception e) {
-            System.out.println(e);
+            System.out.println("error in select "+e);
         }
         return rs;
     }
-    public int Count(String sql){
+    public static int Count(String sql){
         ResultSet rs=null;
         try {
+            Connection con=DataBase_Mysql.con;
             Statement stmt = con.createStatement();
             rs = stmt.executeQuery(sql);
             rs.next();
@@ -64,14 +70,17 @@ public class DataBase_Mysql {
         }
         return 0;
     }
-    public void Insert(String sql){
+    public static void Insert(String sql){
         try {
+            Connection con=DataBase_Mysql.con;
+            System.out.println("insert con :" + con);
             System.out.println(sql);
             Statement stmt = con.createStatement();
+
             stmt.executeUpdate(sql);
         }
         catch (Exception e) {
-            System.out.println(e);
+            System.out.println("Error to insert"+e);
         }
     }
 }

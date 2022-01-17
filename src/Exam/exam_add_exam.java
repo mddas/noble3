@@ -58,8 +58,8 @@ public class exam_add_exam {
         try {
             ResultSet rs;
             System.out.println("hiii");
-            DataBase_Mysql db = new DataBase_Mysql();
-            rs = db.SELECT("SELECT * FROM `Exam`");
+           // DataBase_Mysql db = new DataBase_Mysql();
+            rs = DataBase_Mysql.SELECT("SELECT * FROM `Exam`");
 
             int i = 1;
             while (rs.next()) {

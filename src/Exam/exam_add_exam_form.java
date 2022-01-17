@@ -82,10 +82,10 @@ public class exam_add_exam_form implements ActionListener {
             String year = Year_jt.getText();
             String terminal = Terminal_jt.getText();
 
-            DataBase_Mysql db = new DataBase_Mysql();
-            JOptionPane.showMessageDialog(container, year);
+            //DataBase_Mysql db = new DataBase_Mysql();
+            //JOptionPane.showMessageDialog(container, year);
             String sql = "INSERT INTO `Exam`(`year`, `Terminal`) VALUES ('" + year + "','" + terminal + "')";
-            db.Insert(sql);
+            DataBase_Mysql.Insert(sql);
 
 
         }

@@ -2,12 +2,14 @@ package com.company;
 
 import javax.swing.*;
 import java.awt.*;
+import java.sql.Connection;
 
 public class gui_right {
 public gui_right(JFrame frame, Container container){
 
-    DataBase_Mysql db=new DataBase_Mysql();
-    int total_student= db.Count("select Count(*) from Students");
+   // DataBase_Mysql db=new DataBase_Mysql();
+    //Connection con=class_global_variable.con;
+    int total_student= DataBase_Mysql.Count("select Count(*) from Students");
     String totalstudent="<html><p>"+total_student+"</p><p>total</p>student</html>";
 
     Font font1;
