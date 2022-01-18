@@ -14,13 +14,10 @@ public class AddResult implements ActionListener {
     JLabel subject_L,fullMark_L;
 
 
-    JTextField subject_1_jt,subject_2_jt,subject_3_jt,subject_4_jt;
-    JTextField subject_5_jt,subject_6_jt,subject_7_jt,subject_8_jt,subject_9_jt,subject_10_jt;
-    JTextField subject_1_fm_jt,subject_2_fm_jt,subject_3_fm_jt,subject_4_fm_jt,subject_5_fm_jt;
-    JTextField subject_6_fm_jt,subject_7_fm_jt,subject_8_fm_jt,subject_9_fm_jt,subject_10_fm_jt;
+    JTextField[] suject_jt=new JTextField[12];
+    JTextField[] subject_fm_jt=new JTextField[12];
     JTextField nameResult,rollResult,Class_jt;
 
-    JLabel class_L,subject_1_L,subject_2_L,subject_3_L,subject_4_L,subject_5_L,subject_6_L,subject_7_L,subject_8_L,subject_9_L,subject_10_L;
     AddResult(Container c, JFrame f){
         container=c;
         frame=f;
@@ -30,7 +27,7 @@ public class AddResult implements ActionListener {
         Font font=new Font("Arial",Font.PLAIN,16);
         JPanel panel=new JPanel();
         panel.setBackground(color);
-        panel.setBounds(400,250,880,450);
+        panel.setBounds(380,230,880,450);
 
         panel.setLayout(new GridBagLayout());
         GridBagConstraints constraints=new GridBagConstraints();
@@ -64,7 +61,7 @@ public class AddResult implements ActionListener {
         constraints.gridx = 0;constraints.gridy = 1;
         subject_L=new JLabel("Subject");
         subject_L.setFont(font);
-        subject_L.setForeground(color.white);
+        subject_L.setForeground(Color.white);
         panel.add(subject_L,constraints);
 
         constraints.ipady = 20;
@@ -91,149 +88,39 @@ public class AddResult implements ActionListener {
         fullMark_L.setForeground(Color.white);
         panel.add(fullMark_L,constraints);
 
+        int x=0,y=2;
+        System.out.println(result_search.subjects+""+result_search.subjects.size());
 
-        constraints.ipady = 20;
-        constraints.ipadx = 200;
-        constraints.gridx = 0;constraints.gridy = 2;
-        subject_1_jt=new JTextField();
-        subject_1_jt.setFont(font);
-        panel.add(subject_1_jt,constraints);
-        // increases components height by 50 pixels
-        constraints.ipady = 20;
-        constraints.ipadx = 80;
-        constraints.gridx = 1;constraints.gridy = 2;
-        subject_1_fm_jt=new JTextField();
-        subject_1_fm_jt.setFont(font);
-        panel.add(subject_1_fm_jt,constraints);
+        for (int i=1;i<=10;i++) {
+            constraints.ipady = 20;
+            constraints.ipadx = 170;
+            constraints.gridx = x;
+            constraints.gridy = y;
+            x++;
+            suject_jt[i] = new JTextField();
+            suject_jt[i].setFont(font);
+            panel.add(suject_jt[i], constraints);
+            // increases components height by 50 pixels
+            constraints.ipady = 20;
+            constraints.ipadx = 40;
+            constraints.gridx = x;
+            constraints.gridy = y;
+            subject_fm_jt[i] = new JTextField();
+            subject_fm_jt[i].setFont(font);
+            panel.add(subject_fm_jt[i], constraints);
 
-        constraints.ipady = 20;
-        constraints.ipadx = 200;
-        constraints.gridx = 2;constraints.gridy = 2;
-        subject_2_jt=new JTextField();
-        subject_2_jt.setFont(font);
-        panel.add(subject_2_jt,constraints);
-        // increases components height by 50 pixels
-        constraints.ipady = 20;
-        constraints.ipadx = 80;
-        constraints.gridx = 3;constraints.gridy = 2;
-        subject_2_fm_jt=new JTextField();
-        subject_2_fm_jt.setFont(font);
-        panel.add(subject_2_fm_jt,constraints);
+            if (x == 3) {
+                x = 0;
+                y++;
+            }
+            if (x != 0) {
+                x++;
+            }
+            if (y == 7) {
+                break;
+            }
 
-        constraints.ipady = 20;
-        constraints.ipadx = 200;
-        constraints.gridx = 0;constraints.gridy = 3;
-        subject_3_jt=new JTextField();
-        subject_3_jt.setFont(font);
-        panel.add(subject_3_jt,constraints);
-        // increases components height by 50 pixels
-        constraints.ipady = 20;
-        constraints.ipadx = 80;
-        constraints.gridx = 1;constraints.gridy = 3;
-        subject_3_fm_jt=new JTextField();
-        subject_3_fm_jt.setFont(font);
-        panel.add(subject_3_fm_jt,constraints);
-
-        constraints.ipady = 20;
-        constraints.ipadx = 200;
-        constraints.gridx = 2;constraints.gridy = 3;
-        subject_4_jt=new JTextField();
-        subject_4_jt.setFont(font);
-        panel.add(subject_4_jt,constraints);
-        // increases components height by 50 pixels
-        constraints.ipady = 20;
-        constraints.ipadx = 80;
-        constraints.gridx = 3;constraints.gridy = 3;
-        subject_4_fm_jt=new JTextField();
-        subject_4_fm_jt.setFont(font);
-        panel.add(subject_4_fm_jt,constraints);
-
-        constraints.ipady = 20;
-        constraints.ipadx = 200;
-        constraints.gridx = 0;constraints.gridy = 4;
-        subject_5_jt=new JTextField();
-        subject_5_jt.setFont(font);
-        panel.add(subject_5_jt,constraints);
-        // increases components height by 50 pixels
-        constraints.ipady = 20;
-        constraints.ipadx = 80;
-        constraints.gridx = 1;constraints.gridy = 4;
-        subject_5_fm_jt=new JTextField();
-        subject_5_fm_jt.setFont(font);
-        panel.add(subject_5_fm_jt,constraints);
-
-        //here
-        constraints.ipady = 20;
-        constraints.ipadx = 200;
-        constraints.gridx = 2;constraints.gridy = 4;
-        subject_6_jt=new JTextField();
-        subject_6_jt.setFont(font);
-        panel.add(subject_6_jt,constraints);
-        // increases components height by 50 pixels
-        constraints.ipady = 20;
-        constraints.ipadx = 80;
-        constraints.gridx = 3;constraints.gridy = 4;
-        subject_6_fm_jt=new JTextField();
-        subject_6_fm_jt.setFont(font);
-        panel.add(subject_6_fm_jt,constraints);
-
-        constraints.ipady = 20;
-        constraints.ipadx = 200;
-        constraints.gridx = 0;constraints.gridy = 5;
-        subject_7_jt=new JTextField();
-        subject_7_jt.setFont(font);
-        panel.add(subject_7_jt,constraints);
-        // increases components height by 50 pixels
-        constraints.ipady = 20;
-        constraints.ipadx = 80;
-        constraints.gridx = 1;constraints.gridy = 5;
-        subject_7_fm_jt=new JTextField();
-        subject_7_fm_jt.setFont(font);
-        panel.add(subject_7_fm_jt,constraints);
-
-        constraints.ipady = 20;
-        constraints.ipadx = 200;
-        constraints.gridx = 2;constraints.gridy = 5;
-        subject_8_jt=new JTextField();
-        subject_8_jt.setFont(font);
-        panel.add(subject_8_jt,constraints);
-        // increases components height by 50 pixels
-        constraints.ipady = 20;
-        constraints.ipadx = 80;
-        constraints.gridx = 3;constraints.gridy = 5;
-        subject_8_fm_jt=new JTextField();
-        subject_8_fm_jt.setFont(font);
-        panel.add(subject_8_fm_jt,constraints);
-
-        constraints.ipady = 20;
-        constraints.ipadx = 200;
-        constraints.gridx = 0;constraints.gridy = 6;
-        subject_9_jt=new JTextField();
-        subject_9_jt.setFont(font);
-        panel.add(subject_9_jt,constraints);
-        // increases components height by 50 pixels
-        constraints.ipady = 20;
-        constraints.ipadx = 80;
-        constraints.gridx = 1;constraints.gridy = 6;
-        subject_9_fm_jt=new JTextField();
-        subject_9_fm_jt.setFont(font);
-        panel.add(subject_9_fm_jt,constraints);
-
-        constraints.ipady = 20;
-        constraints.ipadx = 200;
-        constraints.gridx = 2;constraints.gridy = 6;
-        subject_10_jt=new JTextField();
-        subject_10_jt.setFont(font);
-        panel.add(subject_10_jt,constraints);
-        // increases components height by 50 pixels
-        constraints.ipady = 20;
-        constraints.ipadx = 80;
-        constraints.gridx = 3;constraints.gridy = 6;
-        subject_10_fm_jt=new JTextField();
-        subject_10_fm_jt.setFont(font);
-        panel.add(subject_10_fm_jt,constraints);
-
-
+        }
 
         constraints.gridx=1;constraints.gridy=7;
         submit=new JButton("Submit");
@@ -244,13 +131,22 @@ public class AddResult implements ActionListener {
         //container.add(panel0);
         //container.add(panel);
 
-        System.out.println(result_search.subjects);
+
+
 
         JPopupMenu popupmenu = new JPopupMenu("Edit");
         popupmenu.add(panel);
         popupmenu.show(container,400,250);
 
         submit.addActionListener(this);
+
+        //subject is set from fm class
+        for (int i=1;i<=10;i++) {
+            if (result_search.subjects.isEmpty() != true) {
+                suject_jt[i].setText(result_search.subjects.get(0));
+                result_search.subjects.remove(0);
+            }
+        }
 
     }
     public void actionPerformed(ActionEvent e) {
@@ -261,64 +157,64 @@ public class AddResult implements ActionListener {
             int Roll=Integer.parseInt(rollResult.getText());
 
 
-            String sub_1 = subject_1_jt.getText();
+            String sub_1 = suject_jt[1].getText();
             int sub_1_fm=0;
-            if (subject_1_fm_jt.getText().isEmpty()==false){
-                sub_1_fm=Integer.parseInt(subject_1_fm_jt.getText());
+            if (subject_fm_jt[1].getText().isEmpty()==false){
+                sub_1_fm=Integer.parseInt(subject_fm_jt[1].getText());
             }
 
-            String sub_2 = subject_2_jt.getText();
+            String sub_2 = suject_jt[2].getText();
             int sub_2_fm=0;
-            if (subject_2_fm_jt.getText().isEmpty()==false){
-                sub_2_fm=Integer.parseInt(subject_2_fm_jt.getText());
+            if (subject_fm_jt[2].getText().isEmpty()==false){
+                sub_2_fm=Integer.parseInt(subject_fm_jt[2].getText());
             }
 
-            String sub_3 = subject_3_jt.getText();
+            String sub_3 = suject_jt[3].getText();
             int sub_3_fm=0;
-            if (subject_3_fm_jt.getText().isEmpty()==false){
-                sub_3_fm=Integer.parseInt(subject_3_fm_jt.getText());
+            if (subject_fm_jt[3].getText().isEmpty()==false){
+                sub_3_fm=Integer.parseInt(subject_fm_jt[3].getText());
             }
 
-            String sub_4 = subject_4_jt.getText();
+            String sub_4 = suject_jt[4].getText();
             int sub_4_fm=0;
-            if (subject_4_fm_jt.getText().isEmpty()==false){
-                sub_4_fm=Integer.parseInt(subject_4_fm_jt.getText());
+            if (subject_fm_jt[4].getText().isEmpty()==false){
+                sub_4_fm=Integer.parseInt(subject_fm_jt[4].getText());
             }
 
-            String sub_5 = subject_5_jt.getText();
+            String sub_5 = suject_jt[5].getText();
             int sub_5_fm=0;
-            if (subject_5_fm_jt.getText().isEmpty()==false){
-                sub_5_fm=Integer.parseInt(subject_5_fm_jt.getText());
+            if (subject_fm_jt[5].getText().isEmpty()==false){
+                sub_5_fm=Integer.parseInt(subject_fm_jt[5].getText());
             }
 
-            String sub_6 = subject_6_jt.getText();
+            String sub_6 = suject_jt[6].getText();
             int sub_6_fm=0;
-            if (subject_6_fm_jt.getText().isEmpty()==false){
-                sub_6_fm=Integer.parseInt(subject_6_fm_jt.getText());
+            if (subject_fm_jt[6].getText().isEmpty()==false){
+                sub_6_fm=Integer.parseInt(subject_fm_jt[6].getText());
             }
 
-            String sub_7 = subject_7_jt.getText();
+            String sub_7 = suject_jt[7].getText();
             int sub_7_fm=0;
-            if (subject_7_fm_jt.getText().isEmpty()==false){
-                sub_7_fm=Integer.parseInt(subject_7_fm_jt.getText());
+            if (subject_fm_jt[7].getText().isEmpty()==false){
+                sub_7_fm=Integer.parseInt(subject_fm_jt[7].getText());
             }
 
-            String sub_8 = subject_8_jt.getText();
+            String sub_8 = suject_jt[8].getText();
             int sub_8_fm=0;
-            if (subject_8_fm_jt.getText().isEmpty()==false){
-                sub_8_fm=Integer.parseInt(subject_8_fm_jt.getText());
+            if (subject_fm_jt[8].getText().isEmpty()==false){
+                sub_8_fm=Integer.parseInt(subject_fm_jt[8].getText());
             }
 
-            String sub_9 = subject_9_jt.getText();
+            String sub_9 = suject_jt[9].getText();
             int sub_9_fm=0;
-            if (subject_9_fm_jt.getText().isEmpty()==false){
-                sub_9_fm=Integer.parseInt(subject_9_fm_jt.getText());
+            if (subject_fm_jt[9].getText().isEmpty()==false){
+                sub_9_fm=Integer.parseInt(subject_fm_jt[9].getText());
             }
 
-            String sub_10 = subject_10_jt.getText();
+            String sub_10 = suject_jt[10].getText();
             int sub_10_fm=0;
-            if (subject_10_fm_jt.getText().isEmpty()==false){
-                sub_10_fm=Integer.parseInt(subject_10_fm_jt.getText());
+            if (subject_fm_jt[10].getText().isEmpty()==false){
+                sub_10_fm=Integer.parseInt(subject_fm_jt[10].getText());
             }
             //JOptionPane.showMessageDialog(container, Classp);
 

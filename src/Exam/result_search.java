@@ -205,34 +205,35 @@ public class result_search implements ActionListener, ItemListener {
                  String sub_8 = rs.getString("sub_8");
                  String sub_9 = rs.getString("sub_9");
                  String sub_10 = rs.getString("sub_10");
-                 if (sub_1!=null){
+
+                 if (!sub_1.isEmpty()){
                      subjects.add(sub_1);
                  }
-                 if (sub_2!=null){
+                 if (!sub_2.isEmpty()){
                      subjects.add(sub_2);
                  }
-                 if (sub_3!=null){
+                 if (!sub_3.isEmpty()){
                      subjects.add(sub_3);
                  }
-                 if (sub_4!=null){
+                 if (!sub_4.isEmpty()){
                      subjects.add(sub_4);
                  }
-                 if (sub_5!=null){
+                 if (!sub_5.isEmpty()){
                      subjects.add(sub_5);
                  }
-                 if (sub_6!=null){
+                 if (!sub_6.isEmpty()){
                      subjects.add(sub_6);
                  }
-                 if (sub_7!=null){
+                 if (!sub_7.isEmpty()){
                      subjects.add(sub_7);
                  }
-                 if (sub_8!=null){
+                 if (!sub_8.isEmpty()){
                      subjects.add(sub_8);
                  }
-                 if (sub_9!=null){
+                 if (!sub_9.isEmpty()){
                      subjects.add(sub_9);
                  }
-                 if (sub_10!=null){
+                 if (!sub_10.isEmpty()){
                      subjects.add(sub_10);
                  }
 
