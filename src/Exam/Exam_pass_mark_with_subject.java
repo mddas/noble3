@@ -55,7 +55,7 @@ public class Exam_pass_mark_with_subject implements ActionListener,ItemListener 
         constraints.ipady = 20;
         constraints.ipadx = 100;
         constraints.gridx = 1;constraints.gridy = 0;
-        String Terminal_s[]={"NONE","First Terminal","Second Terminal","Third Termnal","Final Terminal"};
+        String Terminal_s[]={"NONE","first","second","third","final"};
         terminal=new JComboBox(Terminal_s);
 
         terminal.setFont(font);

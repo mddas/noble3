@@ -26,8 +26,8 @@ public class DataBase_Mysql {
         try {
 
             //Class.forName("org.sqlite.JDBC");
-            con = DriverManager.getConnection("jdbc:mysql://167.99.251.30/noblesch_noble", "noblesch_mddas", "9808059156@");
-            //con =DriverManager.getConnection("jdbc:sqlite:Database/NobleSchool.sqlite");
+            //con = DriverManager.getConnection("jdbc:mysql://167.99.251.30/noblesch_noble", "noblesch_mddas", "9808059156@");
+            con =DriverManager.getConnection("jdbc:sqlite:Database/NobleSchool.sqlite");
             System.out.println("[OK] Database mysql connection Successfully"+ con);
         }
         catch (Exception e){
