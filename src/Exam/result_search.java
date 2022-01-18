@@ -19,6 +19,7 @@ public class result_search implements ActionListener, ItemListener {
     JFrame frame;
     JComboBox class_combo,Year_choose_combo,Terminal_combo;
     public static ArrayList<String> subjects=new ArrayList<String>();
+    public static String class_selected;
 
     result_search(Container c, JFrame f) {
         frame = f;
@@ -187,10 +188,14 @@ public class result_search implements ActionListener, ItemListener {
         System.out.println("item changed md");
         if (class_combo.getSelectedItem().toString() != "NONE" && itemEvent.getStateChange() == ItemEvent.SELECTED) {
             //get selected class and put subjects in global variable.
+             if (!subjects.isEmpty()){
+                 subjects.clear();
+             }
              ResultSet rs;
              String Year_jcombo=Year_choose_combo.getSelectedItem().toString();
              String Terminal_jcombo=Terminal_combo.getSelectedItem().toString();
              String class_name=class_combo.getSelectedItem().toString();
+             class_selected=class_name;
              String sql="SELECT * FROM `full_marks` WHERE year='"+Year_jcombo+"' AND Terminal='"+Terminal_jcombo+"' AND ClassName='"+class_name+"'";
              rs=DataBase_Mysql.SELECT(sql);
              try {
