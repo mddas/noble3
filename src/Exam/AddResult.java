@@ -221,7 +221,7 @@ public class AddResult implements ActionListener {
                 }
                 //JOptionPane.showMessageDialog(container, Classp);
 
-                String sql = "INSERT INTO `Student_Result`(`Student_class`, `Name`, `Roll`, `sub_1`, `sub_1_fm`, `sub_2`, `sub_2_fm`, `sub_3`, `sub_3_fm`, `sub_4`, `sub_4_fm`, `sub_5`, `sub_5_fm`, `sub_6`, `sub_6_fm`, `sub_7`, `sub_7_fm`, `sub_8`, `sub_8_fm`, `sub_9`, `sub_9_fm`, `sub_10`, `sub_10_fm`) VALUES ('" + Student_Class + "','" + Name + "','" + Roll + "','" + sub_1 + "','" + sub_1_fm + "','" + sub_2 + "','" + sub_2_fm + "','" + sub_3 + "','" + sub_3_fm + "','" + sub_4 + "','" + sub_4_fm + "','" + sub_5 + "','" + sub_5_fm + "','" + sub_6 + "','" + sub_6_fm + "','" + sub_7 + "','" + sub_7_fm + "','" + sub_8 + "','" + sub_8_fm + "','" + sub_9 + "','" + sub_9_fm + "','" + sub_10 + "','" + sub_10_fm + "')";
+                String sql = "INSERT INTO `Student_Result`(`year`,`Terminal`,`Student_class`, `Name`, `Roll`, `sub_1`, `sub_1_fm`, `sub_2`, `sub_2_fm`, `sub_3`, `sub_3_fm`, `sub_4`, `sub_4_fm`, `sub_5`, `sub_5_fm`, `sub_6`, `sub_6_fm`, `sub_7`, `sub_7_fm`, `sub_8`, `sub_8_fm`, `sub_9`, `sub_9_fm`, `sub_10`, `sub_10_fm`) VALUES ('" + result_search.Year_selected + "','" + result_search.Terminal_selected + "','" + Student_Class + "','" + Name + "','" + Roll + "','" + sub_1 + "','" + sub_1_fm + "','" + sub_2 + "','" + sub_2_fm + "','" + sub_3 + "','" + sub_3_fm + "','" + sub_4 + "','" + sub_4_fm + "','" + sub_5 + "','" + sub_5_fm + "','" + sub_6 + "','" + sub_6_fm + "','" + sub_7 + "','" + sub_7_fm + "','" + sub_8 + "','" + sub_8_fm + "','" + sub_9 + "','" + sub_9_fm + "','" + sub_10 + "','" + sub_10_fm + "')";
                 DataBase_Mysql.Insert(sql);
             }
             else {

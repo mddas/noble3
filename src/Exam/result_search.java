@@ -20,6 +20,9 @@ public class result_search implements ActionListener, ItemListener {
     JComboBox class_combo,Year_choose_combo,Terminal_combo;
     public static ArrayList<String> subjects=new ArrayList<String>();
     public static String class_selected;
+    public static String Year_selected;
+    public static String Terminal_selected;
+
 
     result_search(Container c, JFrame f) {
         frame = f;
@@ -70,7 +73,7 @@ public class result_search implements ActionListener, ItemListener {
         Terminal_L.setBounds(210, 5, 200, 50);
         panel.add(Terminal_L);
 
-        String Terminal_List[] = {"first","second","third"};
+        String Terminal_List[] = {"NONE","first","second","third"};
         Terminal_combo = new JComboBox(Terminal_List);
         Terminal_combo.setBackground(Color.white);
         Terminal_combo.setBounds(310, 2, 100, 50);
@@ -159,6 +162,16 @@ public class result_search implements ActionListener, ItemListener {
         container.add(panel);
 
         class_combo.addItemListener(this);
+        Terminal_combo.addItemListener(this);
+
+        if(class_selected!=null)
+        {
+            class_combo.setSelectedItem(class_selected);
+        }
+        if (Terminal_selected!=null){
+            System.out.println(Terminal_selected);
+            Terminal_combo.setSelectedItem(Terminal_selected);
+        }
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -186,7 +199,8 @@ public class result_search implements ActionListener, ItemListener {
     @Override
     public void itemStateChanged(ItemEvent itemEvent) {
         System.out.println("item changed md");
-        if (class_combo.getSelectedItem().toString() != "NONE" && itemEvent.getStateChange() == ItemEvent.SELECTED) {
+        if (itemEvent.getStateChange() == ItemEvent.SELECTED && class_combo.getSelectedItem().toString()!="NONE"&&Terminal_combo.getSelectedItem().toString()!="NONE") {
+            System.out.println("item changed result_search");
             //get selected class and put subjects in global variable.
              if (!subjects.isEmpty()){
                  subjects.clear();
@@ -196,6 +210,8 @@ public class result_search implements ActionListener, ItemListener {
              String Terminal_jcombo=Terminal_combo.getSelectedItem().toString();
              String class_name=class_combo.getSelectedItem().toString();
              class_selected=class_name;
+             Year_selected=Year_jcombo;
+             Terminal_selected=Terminal_jcombo;
              String sql="SELECT * FROM `full_marks` WHERE year='"+Year_jcombo+"' AND Terminal='"+Terminal_jcombo+"' AND ClassName='"+class_name+"'";
              rs=DataBase_Mysql.SELECT(sql);
              try {
