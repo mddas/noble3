@@ -168,9 +168,14 @@ public class result_search implements ActionListener, ItemListener {
         {
             class_combo.setSelectedItem(class_selected);
         }
+        else{
+            class_combo.setSelectedItem("NINE");// this is default class select//
+        }
         if (Terminal_selected!=null){
-            System.out.println(Terminal_selected);
             Terminal_combo.setSelectedItem(Terminal_selected);
+        }
+        else {
+            Terminal_combo.setSelectedItem("second");//default select
         }
     }
 
