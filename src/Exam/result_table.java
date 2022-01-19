@@ -6,13 +6,17 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import java.awt.*;
+import java.sql.Array;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Vector;
 
 public class result_table {
     result_table(Container container, JFrame frame){
+
+        ArrayList<String> TempColumn=new ArrayList<>(result_search.subjects);
 
         JPanel panel=new JPanel();
         panel.setBounds(200,160,1180,600);
@@ -23,15 +27,15 @@ public class result_table {
 
         //result_search.subjects
         DefaultTableModel model = new DefaultTableModel();
-        for (int i=0;i<result_search.subjects.size();i++){
-            model.addColumn(result_search.subjects.get(i));
-        }
-        System.out.println(result_search.subjects);
-        model.addRow(new Vector<String>(Collections.singleton("hkkj")));
-        model.addRow(new Vector<String>(Collections.singleton("hkkj")));
-        model.addRow(new Vector<String>(Collections.singleton("hkkj")));
-        model.addRow(new Vector<String>(Collections.singleton("hkkj")));
 
+        TempColumn.add(0,"Roll");
+        TempColumn.add(0,"Name");
+        TempColumn.add(0,"Class");
+
+        for (int i=0;i<TempColumn.size();i++){
+            model.addColumn(TempColumn.get(i));
+        }
+        System.out.println(TempColumn.size()+": Size TempColumn");
 
         try {
             ResultSet rs;
@@ -39,22 +43,27 @@ public class result_table {
             String sql="SELECT * FROM `Student_Result` WHERE year='"+result_search.Year_selected+"' AND Terminal='"+result_search.Terminal_selected+"' AND Student_class='"+result_search.class_selected+"'";
             rs = DataBase_Mysql.SELECT(sql);
 
-            int i = 1;
+
             while (rs.next()) {
-                //Vector<String> data = new Vector<String>();
+                Vector<String> rowdata= new Vector<String>();
                 HashMap<String, String> dict = new HashMap<String, String>();
-                for (i = 1; i <= 10; i++) {
+                for (int i = 1; i <= 10; i++) {
                     if (! rs.getString("sub_"+i).isEmpty() && rs.getString("sub_"+i)!=null && rs.getString("sub_"+i)!="") {
                         dict.put(rs.getString("sub_" + i), rs.getString("sub_" + i + "_fm"));
                     }
                 }
-                //model.addRow(data);
-
-                System.out.println("this is dict"+dict);
+                dict.put("Class",rs.getString("Student_class"));
+                dict.put("Name",rs.getString("Name"));
+                dict.put("Roll",rs.getString("Roll"));
+                for (int i=0;i<TempColumn.size();i++){
+                    rowdata.add(dict.get(TempColumn.get(i)));
+                }
+                  System.out.println(rowdata);
+                  model.addRow(rowdata);
             }
 
         } catch (Exception e) {
-            System.out.println("result display database not found"+e);
+            System.out.println("result_table error: "+e);
         }
 
         JTable jt = new JTable(model);
