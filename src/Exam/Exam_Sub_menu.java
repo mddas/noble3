@@ -80,7 +80,7 @@ public class Exam_Sub_menu implements ActionListener {
         result_B.setForeground(red);
         result_B.setSize(ExamManageLogo.getIconWidth(),ExamManageLogo.getIconHeight()+10);
         panel.add(result_B);
-
+/*
 
         AddExamL=new JLabel("Add Exam");
         AddExamL.setBounds(112,230,300,200);
@@ -94,18 +94,20 @@ public class Exam_Sub_menu implements ActionListener {
         AddExamB.setSize(ExamManageLogo.getIconWidth(),ExamManageLogo.getIconHeight());
         panel.add(AddExamB);
 
+ */
+
         Exam_pass_mark_with_subject_L=new JLabel("Add FM");
-        Exam_pass_mark_with_subject_L.setBounds(112,320,300,200);
+        Exam_pass_mark_with_subject_L.setBounds(112,230,300,200);//112,320,300,200);
         Exam_pass_mark_with_subject_L.setFont(font1);
         Exam_pass_mark_with_subject_L.setForeground(white);
         panel.add(Exam_pass_mark_with_subject_L);
         Exam_pass_mark_with_subject_B=new JButton(newadmisson);
-        Exam_pass_mark_with_subject_B.setBounds(10,380,300,200);
+        Exam_pass_mark_with_subject_B.setBounds(10,300,300,200);//10,380,300,200);
         Exam_pass_mark_with_subject_B.setFont(font1);
         Exam_pass_mark_with_subject_B.setForeground(red);
         Exam_pass_mark_with_subject_B.setSize(ExamManageLogo.getIconWidth(),ExamManageLogo.getIconHeight());
         panel.add(Exam_pass_mark_with_subject_B);
-
+/*
         AddSubjectL=new JLabel("Add Class subject");
         AddSubjectL.setBounds(112,400,300,200);
         AddSubjectL.setFont(font1);
@@ -118,13 +120,14 @@ public class Exam_Sub_menu implements ActionListener {
         AddSubjectB.setSize(ExamManageLogo.getIconWidth(),ExamManageLogo.getIconHeight());
         panel.add(AddSubjectB);
 
+ */
         SheatplanL=new JLabel("Sheat generate");
-        SheatplanL.setBounds(112,470,300,200);
+        SheatplanL.setBounds(112,320,300,200);//112,470,300,200);
         SheatplanL.setFont(font1);
         SheatplanL.setForeground(white);
         panel.add(SheatplanL);
         SheatplanB=new JButton(sheat_generateLogo);
-        SheatplanB.setBounds(10,540,300,200);
+        SheatplanB.setBounds(10,380,300,200);//10,540,300,200);
         SheatplanB.setFont(font1);
         SheatplanB.setForeground(red);
         SheatplanB.setSize(ExamManageLogo.getIconWidth(),ExamManageLogo.getIconHeight());
@@ -137,10 +140,10 @@ public class Exam_Sub_menu implements ActionListener {
 
         profile_B.addActionListener(this);//this is ActionListener
         ExamManageB.addActionListener(this);
-        AddExamB.addActionListener(this);
+        //AddExamB.addActionListener(this);
         Exam_pass_mark_with_subject_B.addActionListener(this);
 
-        AddSubjectB.addActionListener(this);
+        //AddSubjectB.addActionListener(this);
         SheatplanB.addActionListener(this);
         result_B.addActionListener(this);
 
@@ -159,7 +162,12 @@ public class Exam_Sub_menu implements ActionListener {
 
         }
         if(e.getSource()==result_B){
-            JOptionPane.showMessageDialog(container,"Result");
+            container.removeAll();
+            new Exam_Sub_menu(frame,container);
+            new result_heading(container,frame);
+            new result_table(container,frame);
+            container.repaint();
+            container.validate();
         }
 
         if(e.getSource()==ExamManageB){
@@ -170,6 +178,7 @@ public class Exam_Sub_menu implements ActionListener {
             container.validate();
 
         }
+        /*
         else if(e.getSource()==AddExamB) {
             container.removeAll();
             new Exam_Sub_menu(frame,container);
@@ -177,7 +186,7 @@ public class Exam_Sub_menu implements ActionListener {
             container.repaint();
             container.validate();
         }
-
+*/
         else if(e.getSource()==Exam_pass_mark_with_subject_B) {
             container.removeAll();
             new Exam_Sub_menu(frame,container);
@@ -185,6 +194,7 @@ public class Exam_Sub_menu implements ActionListener {
             container.repaint();
             container.validate();
         }
+        /*
 
         else if(e.getSource()==AddSubjectB) {
             JOptionPane.showMessageDialog(container,"add subject");
@@ -196,6 +206,8 @@ public class Exam_Sub_menu implements ActionListener {
             container.repaint();
             container.validate();
         }
+
+         */
         else if(e.getSource()==SheatplanB) {
             JOptionPane.showMessageDialog(container,"sheat plan");
         }

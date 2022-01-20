@@ -21,7 +21,7 @@ public class exam_add_exam {
         Color wood = new Color(130, 91, 31);
         panel.setBackground(wood);
 
-        new exam_add_exam_header(container, frame);
+        new result_heading(container, frame);
         new exam_add_exam_form(container, frame);
 
 
