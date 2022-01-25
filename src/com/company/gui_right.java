@@ -11,6 +11,8 @@ public gui_right(JFrame frame, Container container){
     //Connection con=class_global_variable.con;
     int total_student= DataBase_Mysql.Count("select Count(*) from Students");
     String totalstudent="<html><p>"+total_student+"</p><p>total</p>student</html>";
+    String totalTeacher="<html><p>"+"25"+"</p><p>total</p>Teacher</html>";
+    String totalIncome="<html><p>"+"950000"+"</p><p>total</p>Income</html>";
 
     Font font1;
     font1=new Font("Arial",Font.PLAIN,25);
@@ -35,7 +37,7 @@ public gui_right(JFrame frame, Container container){
     total.setForeground(Color.white);
     panel.add(total);
 
-    newAdmisson_text=new JLabel(totalstudent);
+    newAdmisson_text=new JLabel(totalTeacher);
     newAdmisson_text.setBounds(70,170,200,150);
     newAdmisson_text.setForeground(Color.red);
     newAdmisson_text.setFont(font1);
@@ -45,7 +47,7 @@ public gui_right(JFrame frame, Container container){
     newAdmisson.setForeground(Color.white);
     panel.add(newAdmisson);
 
-    today_present_text=new JLabel(totalstudent);
+    today_present_text=new JLabel(totalIncome);
     today_present_text.setBounds(70,360,200,150);
     today_present_text.setForeground(Color.red);
     today_present_text.setFont(font1);

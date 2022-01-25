@@ -1,5 +1,7 @@
 package com.company;
 
+import Student.Student_search;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -10,6 +12,7 @@ public class search_jpanel implements ActionListener {
     Container container;
     JFrame frame;
     JPanel panel,panel_display;
+    JTextField serch;
     search_jpanel(JFrame f,Container c,JPanel result_panel)
     {
         frame=f;
@@ -24,14 +27,14 @@ public class search_jpanel implements ActionListener {
         Font font1;
         font1=new Font("Arial",Font.PLAIN,20);
 
-        JTextField serch=new JTextField();
-        serch.setBounds(10,3, 270,60);
+        serch=new JTextField();
+        serch.setBounds(10,1, 270,50);
         serch.setFont(font1);
         panel.add(serch);
 
         ImageIcon logo=new ImageIcon("images/search.jpg");
         search_B=new JButton(logo);
-        search_B.setBounds(310,7, 5,20);
+        search_B.setBounds(310,2, 5,13);
         search_B.setFont(font1);
         search_B.setForeground(Color.RED);
         search_B.setSize(logo.getIconWidth(),logo.getIconHeight());
@@ -45,9 +48,11 @@ public class search_jpanel implements ActionListener {
 
     public void actionPerformed(ActionEvent e){
         if(e.getSource()==search_B){
-
-            new result_display_jpanel(container,panel_display);
-
+            String query=serch.getText();
+            if (!query.isEmpty() || query!="" || query!=null) {
+                String sql="SELECT * FROM Student WHERE query";
+                new Student_search(container, frame,sql);
+            }
 
         }
     }

@@ -169,7 +169,7 @@ public class gui_left implements ActionListener {
             container.removeAll();
 
             new Exam_Sub_menu(frame,container);
-            //new gui_content_exam(frame,container);
+            new Exam.gui_content_exam(frame,container);
             container.repaint();
             container.validate();
         }

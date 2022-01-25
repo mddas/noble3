@@ -131,7 +131,7 @@ public class result_heading implements ActionListener, ItemListener {
 
         } else if (e.getSource() == NewRegister) {
 
-            new exam_add_class_subject_pop(container);
+            new AddResult(container,frame);
             //JOptionPane.showMessageDialog(container,"NewAddmisson");
 
         }

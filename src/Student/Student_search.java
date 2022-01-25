@@ -1,5 +1,6 @@
-package Exam;
+package Student;
 
+import Exam.result_search;
 import com.company.DataBase_Mysql;
 
 import javax.swing.*;
@@ -13,8 +14,8 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Vector;
 
-public class result_table {
-    result_table(Container container, JFrame frame){
+public class Student_search {
+    public Student_search(Container container, JFrame frame,String sqls){
 
         ArrayList<String> TempColumn=new ArrayList<>(result_search.subjects);
 
@@ -58,8 +59,8 @@ public class result_table {
                 for (int i=0;i<TempColumn.size();i++){
                     rowdata.add(dict.get(TempColumn.get(i)));
                 }
-                  System.out.println(rowdata);
-                  model.addRow(rowdata);
+                System.out.println(rowdata);
+                model.addRow(rowdata);
             }
 
         } catch (Exception e) {
@@ -86,10 +87,7 @@ public class result_table {
         panel.add(sp);
         panel.setLayout(null);
 
-
-
-
-
         container.add(panel);
     }
 }
+

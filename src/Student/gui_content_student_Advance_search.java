@@ -1,6 +1,4 @@
-package Exam;
-
-import com.company.NewAdmisson;
+package Student;
 
 import javax.swing.*;
 import java.awt.*;
@@ -26,7 +24,6 @@ public class gui_content_student_Advance_search implements ActionListener {
 
         ImageIcon searchLogo=new ImageIcon("images/search.jpg");
         ImageIcon newadmisson=new ImageIcon("images/newadmisson.png");
-
 
         JLabel clas,rol;
 
@@ -83,7 +80,10 @@ public class gui_content_student_Advance_search implements ActionListener {
         }
         else if(e.getSource()==NewRegister){
 
+            container.remove(2);
             new NewAdmisson(container);
+            container.repaint();
+            container.validate();
 
         }
     }

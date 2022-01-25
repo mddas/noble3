@@ -1,7 +1,7 @@
 package com.company;
-
 import javax.swing.*;
 import java.awt.*;
+import Student.*;
 
 public class gui_content_home {
     public gui_content_home(JFrame frame, Container container) {
@@ -13,6 +13,7 @@ public class gui_content_home {
         JPanel panel_display=new JPanel();
         panel_display.setBounds(300,260,700,500);
         panel_display.setBackground(wood);
+
         new heading_jpanel(container,350,5,650,90);//this is heading
         new search_jpanel(frame,container,panel_display);
 

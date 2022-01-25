@@ -1,13 +1,13 @@
 package com.company;
 
-import Exam.gui_content_student_Advance_search;
+import Student.gui_content_student_Advance_search;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class gui_content_student {
     gui_content_student(JFrame frame, Container container) {
-        container.setBackground(Color.white);
+       // container.setBackground(Color.white);
     Color wood=new Color(130, 91, 31);
 
     JPanel panel_display=new JPanel();

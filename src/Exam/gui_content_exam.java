@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class gui_content_exam {
-        gui_content_exam(JFrame frame, Container container) {
+        public gui_content_exam(JFrame frame, Container container) {
             JPanel panel = new JPanel();
             Color wood=new Color(130, 91, 31);
             panel.setBackground(wood);

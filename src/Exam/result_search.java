@@ -1,8 +1,5 @@
 package Exam;
-import Exam.Exam_Sub_menu;
-import Exam.exam_add_exam;
 import com.company.DataBase_Mysql;
-import com.company.NewAdmisson;
 
 import javax.swing.*;
 import java.awt.*;
