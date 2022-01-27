@@ -1,5 +1,6 @@
 package com.company;
 import Exam.Exam_Sub_menu;
+import Student.gui_content_student;
 
 import javax.swing.*;
 import java.awt.*;

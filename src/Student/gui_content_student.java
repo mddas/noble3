@@ -1,12 +1,10 @@
-package com.company;
-
-import Student.gui_content_student_Advance_search;
+package Student;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class gui_content_student {
-    gui_content_student(JFrame frame, Container container) {
+    public gui_content_student(JFrame frame, Container container) {
        // container.setBackground(Color.white);
     Color wood=new Color(130, 91, 31);
 
