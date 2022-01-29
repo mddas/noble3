@@ -14,8 +14,11 @@ import java.util.HashMap;
 import java.util.Vector;
 
 public class result_table {
-    result_table(Container container, JFrame frame){
+    result_table(Container container, JFrame frame,String sql){
+        if (sql==null){
+            sql="SELECT * FROM `Student_Result` WHERE year='"+result_search.Year_selected+"' AND Terminal='"+result_search.Terminal_selected+"' AND Student_class='"+result_search.class_selected+"'";
 
+        }
         ArrayList<String> TempColumn=new ArrayList<>(result_search.subjects);
 
         JPanel panel=new JPanel();
@@ -39,11 +42,7 @@ public class result_table {
 
         try {
             ResultSet rs;
-            System.out.println("hiii");
-            String sql="SELECT * FROM `Student_Result` WHERE year='"+result_search.Year_selected+"' AND Terminal='"+result_search.Terminal_selected+"' AND Student_class='"+result_search.class_selected+"'";
             rs = DataBase_Mysql.SELECT(sql);
-
-
             while (rs.next()) {
                 Vector<String> rowdata= new Vector<String>();
                 HashMap<String, String> dict = new HashMap<String, String>();

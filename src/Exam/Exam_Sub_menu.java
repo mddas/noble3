@@ -163,9 +163,10 @@ public class Exam_Sub_menu implements ActionListener {
         }
         if(e.getSource()==result_B){
             container.removeAll();
+            String sql=null;
             new Exam_Sub_menu(frame,container);
             new result_heading(container,frame);
-            new result_table(container,frame);
+            new result_table(container,frame,sql);
             container.repaint();
             container.validate();
         }

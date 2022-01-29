@@ -12,7 +12,7 @@ public class gui_content_student {
     panel_display.setBounds(300,260,700,500);
 
     new gui_content_student_Advance_search(container,frame);
-    new gui_content_studentTable(container,frame);
+    new gui_content_studentTable(container,frame,new Rectangle(200,130,1180,600));
 
     ImageIcon background_wood=new ImageIcon("images/6_1.jpg");
     JLabel bgImage=new JLabel("",background_wood,JLabel.LEFT);

@@ -15,6 +15,7 @@ public class result_search implements ActionListener, ItemListener {
     Container container;
     JFrame frame;
     JComboBox class_combo,Year_choose_combo,Terminal_combo;
+    JTextField roll,serch;
     public static ArrayList<String> subjects=new ArrayList<String>();
     public static String class_selected;
     public static String Year_selected;
@@ -123,12 +124,12 @@ public class result_search implements ActionListener, ItemListener {
         rol.setBounds(250, 90, 100, 50);
         panel.add(rol);
 
-        JTextField roll = new JTextField();
+        roll = new JTextField();
         roll.setBounds(300, 90, 100, 50);
         roll.setFont(font1);
         panel.add(roll);
 
-        JTextField serch = new JTextField();
+        serch = new JTextField();
         serch.setBounds(450, 90, 300, 50);
         serch.setFont(font1);
         panel.add(serch);
@@ -178,8 +179,82 @@ public class result_search implements ActionListener, ItemListener {
 
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == search_B) {
-            //new result_display_jpanel(container,panel_display);
-            JOptionPane.showMessageDialog(container, "search");
+            String Year_jcombo=Year_choose_combo.getSelectedItem().toString();
+            String Terminal_jcombo=Terminal_combo.getSelectedItem().toString();
+            String class_name=class_combo.getSelectedItem().toString();
+            String Serch=serch.getText();
+            String Roll=roll.getText();
+            if (Serch.isEmpty()==true){
+                Serch="";
+            }
+            if (Roll.isEmpty()==true){
+                Roll="";
+            }
+            String sql=null;
+            if (Serch!="" && Year_jcombo!="NONE" && Terminal_jcombo!="NONE" && class_name!="NONE" && Roll!="" ){
+            //total search
+                System.out.println("total search");
+                sql="SELECT * FROM `Student_Result` WHERE  Name='"+Serch+"' AND year='"+Year_jcombo+"' AND Terminal='"+Terminal_jcombo+"' AND Student_class='"+class_name+"' AND Roll='"+Roll+"'";
+            }
+            else if (Serch=="" && Year_jcombo!="NONE" && Terminal_jcombo!="NONE" && class_name!="NONE" && Roll!=""){
+                //if search is null then upto roll
+                System.out.println("if search is null then upto roll");
+                sql="SELECT * FROM `Student_Result` WHERE year='"+Year_jcombo+"' AND Terminal='"+Terminal_jcombo+"' AND Student_class='"+class_name+"' AND Roll='"+Roll+"'";
+            }
+            else if (Serch!="" && Year_jcombo!="NONE" && Terminal_jcombo!="NONE" && class_name!="NONE" && Roll==""){
+                //if name is give and roll is null then
+                System.out.println("if name is give and roll is null then");
+                sql="SELECT * FROM `Student_Result` WHERE  Name='"+Serch+"' AND year='"+Year_jcombo+"' AND Terminal='"+Terminal_jcombo+"' AND Student_class='"+class_name+"'";
+            }
+            else if (Serch!="" && Year_jcombo=="NONE" && Terminal_jcombo=="NONE" && class_name=="NONE" && Roll==""){
+                //if name is only given and all are null then
+                System.out.println("if name is only given and all are null then");
+                sql="SELECT * FROM `Student_Result` WHERE  Name='"+Serch+"'";
+            }
+            else if (Serch!="" && Year_jcombo=="NONE" && Terminal_jcombo=="NONE" && class_name!="NONE" && Roll==""){
+                //if name and class is given then
+                System.out.println("if name and class is given then");
+                sql="SELECT * FROM `Student_Result` WHERE  Name='"+Serch+"' AND Student_class='"+class_name+"'";
+            }
+            else if (Serch!="" && Year_jcombo!="NONE" && Terminal_jcombo=="NONE" && class_name!="NONE" && Roll==""){
+                //if name class and year is given then
+                System.out.println("if name class and year is given then");
+                sql="SELECT * FROM `Student_Result` WHERE  Name='"+Serch+"' AND year='"+Year_jcombo+"' AND Student_class='"+class_name+"'";
+            }
+            else if (Serch!="" && Year_jcombo=="NONE" && Terminal_jcombo!="NONE" && class_name!="NONE" && Roll==""){
+                //if name class and terminal is given
+                System.out.println("if name class and terminal is given");
+                sql="SELECT * FROM `Student_Result` WHERE  Name='"+Serch+"' AND Terminal='"+Terminal_jcombo+"' AND Student_class='"+class_name+"'";
+            }
+            else if (Serch!="" && Year_jcombo!="NONE" && Terminal_jcombo=="NONE" && class_name!="NONE" && Roll!=""){
+                //if name,roll,class and year is given
+                System.out.println("if name,roll,class and year is given");
+                sql="SELECT * FROM `Student_Result` WHERE Roll='"+Roll+"' AND Name='"+Serch+"' AND year='"+Year_jcombo+"' AND Student_class='"+class_name+"'";
+            }
+            else if (Roll!="" && Year_jcombo!="NONE" && Terminal_jcombo=="NONE" && class_name!="NONE" && Serch==""){
+                //if roll,class and year is given and name is null then
+                System.out.println("if roll,class and year is given and name is null then");
+                sql="SELECT * FROM `Student_Result` WHERE Roll='"+Roll+"' AND year='"+Year_jcombo+"' AND Student_class='"+class_name+"'";
+            }
+            else if (Roll!="" && Year_jcombo!="NONE" && Terminal_jcombo!="NONE" && class_name=="NONE" && Serch==""){
+                //if roll,terminal and year is given and name and class is null then
+                System.out.println("if roll,terminal and year is given and name and class is null then");
+                sql="SELECT * FROM `Student_Result` WHERE Roll='"+Roll+"' AND year='"+Year_jcombo+"' AND Terminal='"+Terminal_jcombo+"'";
+            }
+            else {
+                JOptionPane.showMessageDialog(container, "Search query not found");
+            }
+          try {
+              container.remove(3);
+              container.remove(3);
+              container.remove(3);
+          }
+          catch (Exception eo){
+              System.out.println(eo);
+          }
+            new result_table(container,frame,sql);
+            container.repaint();
+            container.validate();
 
         } else if (e.getSource() == NewRegister) {
 

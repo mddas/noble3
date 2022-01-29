@@ -1,6 +1,7 @@
 package com.company;
 
 import Student.Student_search;
+import Student.gui_content_studentTable;
 
 import javax.swing.*;
 import java.awt.*;
@@ -43,7 +44,6 @@ public class search_jpanel implements ActionListener {
 
         container.add(panel);
 
-
     }
 
     public void actionPerformed(ActionEvent e){
@@ -51,7 +51,7 @@ public class search_jpanel implements ActionListener {
             String query=serch.getText();
             if (!query.isEmpty() || query!="" || query!=null) {
                 String sql="SELECT * FROM Student WHERE query";
-                new Student_search(container, frame,sql);
+                new gui_content_studentTable(container, frame,new Rectangle(200,180,1180,600));
             }
 
         }

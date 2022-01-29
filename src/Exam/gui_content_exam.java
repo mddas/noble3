@@ -13,7 +13,8 @@ public class gui_content_exam {
             panel_display.setBackground(wood);
             new Exam_Sub_menu(frame,container);
             new result_search(container,frame);
-            new result_table(container,frame);
+            String sql=null;
+            new result_table(container,frame,sql);
 
             container.add(panel);
             container.add(panel_display);

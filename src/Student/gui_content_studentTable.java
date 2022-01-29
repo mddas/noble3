@@ -10,10 +10,10 @@ import java.sql.ResultSet;
 import java.util.Vector;
 
 public class gui_content_studentTable {
-    gui_content_studentTable(Container container,JFrame frame){
+    public gui_content_studentTable(Container container, JFrame frame,Rectangle bounds){
 
         JPanel panel=new JPanel();
-        panel.setBounds(200,130,1180,600);
+        panel.setBounds(bounds);
         Color wood=new Color(130, 91, 31);
         panel.setBackground(wood);
 //
