@@ -29,8 +29,7 @@ public class gui_content_studentTable {
         model.addColumn("Student_profile");
         try {
             ResultSet rs;
-            DataBase_Mysql db = new DataBase_Mysql();
-            rs = db.SELECT("SELECT * FROM `Students`");
+            rs=DataBase_Mysql.SELECT("SELECT * FROM `Students`");
 
             int i = 1;
             while (rs.next()) {

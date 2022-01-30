@@ -13,7 +13,7 @@ public class DataBase_Mysql {
             //this is for mysqlserver database
             //con = DriverManager.getConnection("jdbc:mysql://167.99.251.30/noblesch_noble", "noblesch_mddas", "9808059156@");
             //this is for sqlite database
-            con =DriverManager.getConnection("jdbc:sqlite:Database/NobleSchool.sqlite");
+            con =DriverManager.getConnection("jdbc:sqlite:Database/NobleSchool1.sqlite");
             System.out.println("[OK] Database mysql connection Successfully"+ con);
         }
         catch (Exception e){

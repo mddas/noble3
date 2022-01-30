@@ -173,21 +173,21 @@ public class NewAdmisson implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == submit) {
             JOptionPane.showMessageDialog(container, "submit");
-            String first_name_formS,Last_name_formS,address_formS,parents_formS,age_formS,email_formS;
-            //String Class_forms=classCombo.getSelectedItem().toString();
+            String first_name_formS,Last_name_formS,address_formS,parents_formS,age_formS,email_formS,roll_formS,mobileNumber_formS;
+            String Class_forms=classCombo.getSelectedItem().toString();
             first_name_formS=first_name_form.getText();
             Last_name_formS=Last_name_form.getText();
             String FullName=first_name_formS+Last_name_formS;
-            //roll_formS=roll_form.getText();
+            roll_formS=roll_form.getText();
             address_formS=address_form.getText();
             parents_formS=parents_form.getText();
-            //mobileNumber_formS=mobileNumber_form.getText();
+            mobileNumber_formS=mobileNumber_form.getText();
             age_formS=age_form.getText();
             email_formS=email_form.getText();
             String Student_Occupation="Unknown";
-            int Class_forms=76;
-            int roll_formS=9;
-           int mobileNumber_formS=7;
+            //int Class_forms=76;
+            //int roll_formS=9;
+           //int mobileNumber_formS=7;
 
           //  ALTER TABLE `Students`
             //MODIFY `Student_id` varchar(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
