@@ -6,6 +6,7 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import java.awt.*;
+import java.awt.event.*;
 import java.sql.Array;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -13,15 +14,19 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Vector;
 
-public class result_table {
-    result_table(Container container, JFrame frame,String sql){
+public class result_table implements MouseListener {
+    JFrame frame;
+    JTable jt;
+    JPanel panel;
+    result_table(Container container, JFrame f,String sql){
+        frame=f;
         if (sql==null){
             sql="SELECT * FROM `Student_Result` WHERE year='"+result_search.Year_selected+"' AND Terminal='"+result_search.Terminal_selected+"' AND Student_class='"+result_search.class_selected+"'";
 
         }
         ArrayList<String> TempColumn=new ArrayList<>(result_search.subjects);
 
-        JPanel panel=new JPanel();
+        panel=new JPanel();
         panel.setBounds(200,160,1180,600);
         Color wood=new Color(130, 91, 31);
         panel.setBackground(wood);
@@ -65,7 +70,7 @@ public class result_table {
             System.out.println("result_table error: "+e);
         }
 
-        JTable jt = new JTable(model);
+        jt = new JTable(model);
 
         //
         Font font1=new Font("Arial",Font.PLAIN,16);
@@ -84,11 +89,72 @@ public class result_table {
         tableHeader.setBackground(new Color(13,91,31));
         panel.add(sp);
         panel.setLayout(null);
-
-
-
-
-
         container.add(panel);
+
+        jt.addMouseListener(this);
     }
+
+    @Override
+    public void mouseClicked(MouseEvent me) {
+        if(me.getButton() == MouseEvent.BUTTON1) {
+            //JOptionPane.showMessageDialog(frame,"left click"+jt.getColumnCount());
+            int rowN=jt.getSelectedRow();
+            JPopupMenu popupmenu = new JPopupMenu("Edit");
+            JMenuItem Edit = new JMenuItem("Edit");
+            JMenuItem Delete = new JMenuItem("Delete");
+            popupmenu.add(Edit); popupmenu.add(Delete);
+            jt.addMouseListener(new MouseAdapter() {
+                public void mouseClicked(MouseEvent e) {
+                    e = SwingUtilities.convertMouseEvent(
+                            e.getComponent(), e, frame);
+                    popupmenu.show(frame , e.getX(), e.getY());
+                }
+            });
+            panel.add(popupmenu);
+            Edit.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    JOptionPane.showMessageDialog(frame,"Edit click");
+                }
+            });
+            Delete.addActionListener((new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    JOptionPane.showMessageDialog(frame,"Delete click");
+                }
+            }));
+            // for (int i=0;i< jt.getColumnCount();i++){
+            //    System.out.println(jt.getValueAt(rowN, i));
+            //}
+
+        }
+        if(me.getButton() == MouseEvent.BUTTON2) {
+            JOptionPane.showMessageDialog(frame,"middle");
+        }
+        if(me.getButton() == MouseEvent.BUTTON3) {
+            JOptionPane.showMessageDialog(frame,"right");
+        }
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
+    }
+
 }
+
