@@ -1,5 +1,4 @@
 package Exam;
-import com.company.*;
 import com.company.gui_content_home;
 import com.company.gui_left;
 import com.company.gui_right;
@@ -191,7 +190,7 @@ public class Exam_Sub_menu implements ActionListener {
         else if(e.getSource()==Exam_pass_mark_with_subject_B) {
             container.removeAll();
             new Exam_Sub_menu(frame,container);
-            new Exam_pass_mark_with_subject(container,frame);
+            new Exam_pass_mark_with_subject(frame,container);
             container.repaint();
             container.validate();
         }
