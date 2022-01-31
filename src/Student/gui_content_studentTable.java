@@ -108,7 +108,15 @@ public class gui_content_studentTable implements MouseListener {
             Delete.addActionListener((new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    JOptionPane.showMessageDialog(frame,"Delete click");
+                    int result = JOptionPane.showConfirmDialog((Component) null, "Are You Sure?","alert", JOptionPane.YES_NO_CANCEL_OPTION);
+                    System.out.println(result+":Result");
+                    if (result==0){
+                        System.out.println("Deleted");
+                        String id= jt.getValueAt(rowN, 0).toString();
+                        String sql="DELETE FROM Students where Student_id = '"+id+"'";
+                        DataBase_Mysql.Delete(sql);
+
+                    }
                 }
             }));
             // for (int i=0;i< jt.getColumnCount();i++){

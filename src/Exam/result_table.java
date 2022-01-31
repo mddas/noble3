@@ -39,6 +39,7 @@ public class result_table implements MouseListener {
         TempColumn.add(0,"Roll");
         TempColumn.add(0,"Name");
         TempColumn.add(0,"Class");
+        TempColumn.add(0,"Result_Id");
 
         for (int i=0;i<TempColumn.size();i++){
             model.addColumn(TempColumn.get(i));
@@ -56,6 +57,8 @@ public class result_table implements MouseListener {
                         dict.put(rs.getString("sub_" + i), rs.getString("sub_" + i + "_fm"));
                     }
                 }
+                System.out.println(rs.getString("student_result_id"));
+                dict.put("Result_Id",rs.getString("student_result_id"));
                 dict.put("Class",rs.getString("Student_class"));
                 dict.put("Name",rs.getString("Name"));
                 dict.put("Roll",rs.getString("Roll"));
@@ -92,6 +95,12 @@ public class result_table implements MouseListener {
         container.add(panel);
 
         jt.addMouseListener(this);
+        try{
+            jt.print();
+        }
+        catch (Exception e){
+            System.out.println("printing Error "+e);
+        }
     }
 
     @Override
@@ -120,7 +129,14 @@ public class result_table implements MouseListener {
             Delete.addActionListener((new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    JOptionPane.showMessageDialog(frame,"Delete click");
+                    int result = JOptionPane.showConfirmDialog((Component) null, "Are You Sure?", "alert", JOptionPane.YES_NO_CANCEL_OPTION);
+                    System.out.println(result + ":Result");
+                    if (result == 0) {
+                        System.out.println("Deleted");
+                        String id = jt.getValueAt(rowN, 0).toString();
+                        String sql = "DELETE FROM Student_Result where student_result_id = '" + id + "'";
+                        DataBase_Mysql.Delete(sql);
+                    }
                 }
             }));
             // for (int i=0;i< jt.getColumnCount();i++){
