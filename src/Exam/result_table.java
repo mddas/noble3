@@ -9,6 +9,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.sql.Array;
 import java.sql.ResultSet;
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -95,12 +96,35 @@ public class result_table implements MouseListener {
         container.add(panel);
 
         jt.addMouseListener(this);
+
+        /*
+
         try{
-            jt.print();
+            jt.print(JTable.PrintMode.FIT_WIDTH,new MessageFormat("i am header"),new MessageFormat("i am footer"));
         }
         catch (Exception e){
             System.out.println("printing Error "+e);
         }
+
+
+         */
+
+
+        //
+
+/*
+        Toolkit tkp = panel.getToolkit();
+        PrintJob pjp = tkp.getPrintJob(frame, null, null);
+        Graphics g = pjp.getGraphics();
+        jt.print(g);
+        g.dispose();
+        pjp.end();
+
+ */
+        //
+
+        //
+
     }
 
     @Override
