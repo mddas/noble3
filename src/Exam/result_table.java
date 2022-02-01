@@ -1,6 +1,7 @@
 package Exam;
 
 import com.company.DataBase_Mysql;
+import com.company.PrintLibrary;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -124,7 +125,18 @@ public class result_table implements MouseListener {
         //
 
         //
-
+        /* Schedule for the GUI to be created and shown on the EDT */
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                /* Don't want bold fonts if we end up using metal */
+                UIManager.put("swing.boldMetal", false);
+                try {
+                    UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+                } catch (Exception e) {
+                }
+                new PrintLibrary().setVisible(true);
+            }
+        });
     }
 
     @Override
