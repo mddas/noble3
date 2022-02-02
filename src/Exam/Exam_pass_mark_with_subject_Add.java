@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.util.HashMap;
 
 public class Exam_pass_mark_with_subject_Add implements ActionListener,ItemListener {
     Container container;
@@ -24,18 +25,13 @@ public class Exam_pass_mark_with_subject_Add implements ActionListener,ItemListe
     JTextField year_jt,terminal_jt;
 
     JLabel class_L,subject_1_L,subject_2_L,subject_3_L,subject_4_L,subject_5_L,subject_6_L,subject_7_L,subject_8_L,subject_9_L,subject_10_L;
-    Exam_pass_mark_with_subject_Add(Container c, JFrame f){
+    HashMap<String,String> Add_year_terminal_class_dictobj;
+    Exam_pass_mark_with_subject_Add(Container c, JFrame f, HashMap<String, String> Add_year_terminal_class_dict_parameter){
+        Add_year_terminal_class_dictobj=Add_year_terminal_class_dict_parameter;
         container=c;
         frame=f;
 
         Color color=new Color(13,91,31);
-
-        JPanel panel0=new JPanel();
-        panel0.setLayout(new GridBagLayout());
-        GridBagConstraints constraints1=new GridBagConstraints();
-        panel0.setBackground(color);
-        panel0.setBounds(400,10,800,100);
-        constraints1.insets = new Insets(10,5,2,20);//top,left,bottm,right
 
         Font font=new Font("Arial",Font.PLAIN,16);
         JPanel panel=new JPanel();
@@ -45,27 +41,6 @@ public class Exam_pass_mark_with_subject_Add implements ActionListener,ItemListe
         panel.setLayout(new GridBagLayout());
         GridBagConstraints constraints=new GridBagConstraints();
         constraints.insets = new Insets(10,2,2,20);//top,left,bottm,right
-
-        constraints.ipady = 20;
-        constraints.ipadx = 100;
-        constraints.gridx = 0;constraints.gridy = 0;
-        year_jt=new JTextField();
-        panel0.add(year_jt,constraints);
-
-        constraints.ipady = 20;
-        constraints.ipadx = 100;
-        constraints.gridx = 1;constraints.gridy = 0;
-        terminal_jt=new JTextField();
-
-        terminal_jt.setFont(font);
-        panel0.add(terminal_jt,constraints);
-
-
-        constraints.ipady = 20;
-        constraints.ipadx = 200;
-        constraints.gridx = 3;constraints.gridy = 0;
-        class_jt=new JTextField();
-        panel0.add(class_jt,constraints);
 
         constraints.ipady = 20;
         constraints.ipadx = 20;
@@ -252,7 +227,6 @@ public class Exam_pass_mark_with_subject_Add implements ActionListener,ItemListe
         //container.add(panel0);
         //container.add(panel);
         popupmenu = new JPopupMenu("Edit");
-        popupmenu.add(panel0);
         popupmenu.add(panel);
         popupmenu.show(container,400,250);
         submit.addActionListener(this);
@@ -268,13 +242,15 @@ public class Exam_pass_mark_with_subject_Add implements ActionListener,ItemListe
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == submit) {
 
-            String which_year = optionYear.getSelectedItem().toString();
-            String which_terminal = terminal.getSelectedItem().toString();
+            String which_year =Add_year_terminal_class_dictobj.get("year");
+            String which_terminal = Add_year_terminal_class_dictobj.get("terminal");
+            String Classp = Add_year_terminal_class_dictobj.get("class");
+            System.out.println(which_year+":"+which_terminal+":"+Classp);
 
-            String Classp = optionClass.getSelectedItem().toString();
-            if(which_terminal=="NONE" || Classp=="NONE"){
+            if(which_terminal==null || Classp==null){
                 JOptionPane.showMessageDialog(container, "Empty can not submit");
             }
+
             else {
 
                 String sub_1 = subject_1_jt.getText();

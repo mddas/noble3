@@ -8,6 +8,7 @@ import javax.swing.table.JTableHeader;
 import java.awt.*;
 import java.awt.event.*;
 import java.sql.ResultSet;
+import java.util.HashMap;
 import java.util.Vector;
 
 public class Exam_pass_mark_with_subject_table implements MouseListener {
@@ -21,34 +22,48 @@ public class Exam_pass_mark_with_subject_table implements MouseListener {
         Color wood = new Color(130, 91, 31);
         panel.setBackground(wood);
 //
+        Vector<String> columnData= new Vector<String>();
         DefaultTableModel model = new DefaultTableModel();
-        model.addColumn("ID");
-        model.addColumn("NAME");
-        model.addColumn("CLASS");
-        model.addColumn("ROLL");
-        model.addColumn("ADDRESS");
-        model.addColumn("PARENTS");
-        model.addColumn("MOBILE");
-        model.addColumn("Student_Occupation");
-        model.addColumn("Student_profile");
+        model.addColumn("full_mark_id");
+        model.addColumn("year");
+        model.addColumn("Terminal");
+        model.addColumn("Class");
+        /*
+        columnData.add("full_mark_id");
+        columnData.add("year");
+        columnData.add("Terminal");
+        columnData.add("ClassName");
+
+         */
+
         try {
             ResultSet rs;
-            rs = DataBase_Mysql.SELECT("SELECT * FROM `Students`");
+            rs = DataBase_Mysql.SELECT("SELECT * FROM `full_marks`");
 
             int i = 1;
             while (rs.next()) {
-                Vector<String> data = new Vector<String>();
-                data.add(rs.getString("Student_id"));
-                data.add(rs.getString("Student_Name"));
-                data.add(rs.getString("Student_Class"));
-                data.add(rs.getString("Student_Roll"));
-                data.add(rs.getString("Student_Place"));
-                data.add(rs.getString("Student_Parents"));
-                data.add(rs.getString("Student_Mobile"));
-                data.add(rs.getString("Student_Occupation"));
-                data.add(rs.getString("Student_profile"));
-                model.addRow(data);
-                System.out.println(data);
+                //System.out.println(rs.getString("year")+":"+rs.getString(2));
+                Vector<String> rowdata= new Vector<String>();
+                HashMap<String, String> dict = new HashMap<String, String>();
+                for (int j = 1; j <= 10; j++) {
+                    if (! rs.getString("sub_"+j).isEmpty() && rs.getString("sub_"+j)!=null && rs.getString("sub_"+j)!="") {
+                        dict.put(rs.getString("sub_" + j), rs.getString("sub_" + j + "_fm"));
+                    }
+                }
+                dict.put("full_mark_id",rs.getString("full_mark_id"));
+                dict.put("year",rs.getString("year"));
+                dict.put("Terminal",rs.getString("Terminal"));
+                dict.put("Class",rs.getString("ClassName"));
+
+                for (String key:dict.keySet()) {
+                    if (key=="full_mark_id" || key=="Terminal" || key=="Class" || key=="year") {
+                    }
+                    else {
+                        model.addColumn(key);
+                    }
+                    rowdata.add(dict.get(key));
+                }
+                model.addRow(rowdata);
             }
 
         } catch (Exception e) {
@@ -107,7 +122,14 @@ public class Exam_pass_mark_with_subject_table implements MouseListener {
             Delete.addActionListener((new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    JOptionPane.showMessageDialog(frame,"Delete click");
+                    int result = JOptionPane.showConfirmDialog((Component) null, "Are You Sure?", "alert", JOptionPane.YES_NO_CANCEL_OPTION);
+                    System.out.println(result + ":Result");
+                    if (result == 0) {
+                        System.out.println("Deleted");
+                        String id = jt.getValueAt(rowN, 0).toString();
+                        String sql = "DELETE FROM full_marks where full_mark_id = '" + id + "'";
+                        DataBase_Mysql.Delete(sql);
+                    }
                 }
             }));
             // for (int i=0;i< jt.getColumnCount();i++){
@@ -144,4 +166,3 @@ public class Exam_pass_mark_with_subject_table implements MouseListener {
     }
 
 }
-

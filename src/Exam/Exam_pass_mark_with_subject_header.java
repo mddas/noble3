@@ -9,12 +9,14 @@ import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.sql.ResultSet;
+import java.util.HashMap;
 
 public class Exam_pass_mark_with_subject_header implements ActionListener, ItemListener {
     JButton search_B, NewRegister, ExamManageB, sheatPlanB, viewResultB;
     Container container;
     JFrame frame;
     JComboBox Terminal_combo, Year_choose_combo, class_combo;
+    static HashMap<String, String> Add_year_terminal_class_dict = new HashMap<String, String>();
 
     Exam_pass_mark_with_subject_header(Container c, JFrame f) {
         frame = f;
@@ -131,7 +133,7 @@ public class Exam_pass_mark_with_subject_header implements ActionListener, ItemL
 
         } else if (e.getSource() == NewRegister) {
 
-            new Exam_pass_mark_with_subject_Add(container,frame);
+            new Exam_pass_mark_with_subject_Add(container,frame,Add_year_terminal_class_dict);
             //JOptionPane.showMessageDialog(container,"NewAddmisson");
 
         }
@@ -142,18 +144,17 @@ public class Exam_pass_mark_with_subject_header implements ActionListener, ItemL
     public void itemStateChanged(ItemEvent itemEvent) {
         System.out.println("item changed md");
         if (itemEvent.getStateChange() == ItemEvent.SELECTED && class_combo.getSelectedItem().toString() != "NONE" && Terminal_combo.getSelectedItem().toString() != "NONE") {
-            System.out.println("item changed result_search");
-            if (!result_search.subjects.isEmpty()){
+            System.out.println("item changed full_mark_search");
+            if (!Add_year_terminal_class_dict.isEmpty()){
                 result_search.subjects.clear();
             }
             ResultSet rs;
             String Year_jcombo=Year_choose_combo.getSelectedItem().toString();
             String Terminal_jcombo=Terminal_combo.getSelectedItem().toString();
             String class_name=class_combo.getSelectedItem().toString();
-            result_search.class_selected=class_name;
-            result_search.Year_selected=Year_jcombo;
-            result_search.Terminal_selected=Terminal_jcombo;
-            System.out.println(Year_jcombo);
+            Add_year_terminal_class_dict.put("class",class_name);
+            Add_year_terminal_class_dict.put("year",Year_jcombo);
+            Add_year_terminal_class_dict.put("terminal",Terminal_jcombo);
 
             //
             String sql="SELECT * FROM `full_marks` WHERE year='"+Year_jcombo+"' AND Terminal='"+Terminal_jcombo+"' AND ClassName='"+class_name+"'";
@@ -210,5 +211,4 @@ public class Exam_pass_mark_with_subject_header implements ActionListener, ItemL
         }
     }
 }
-
 

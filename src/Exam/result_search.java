@@ -292,53 +292,58 @@ public class result_search implements ActionListener, ItemListener {
              String sql="SELECT * FROM `full_marks` WHERE year='"+Year_jcombo+"' AND Terminal='"+Terminal_jcombo+"' AND ClassName='"+class_name+"'";
              rs=DataBase_Mysql.SELECT(sql);
              try {
-                 rs.next();
-                 String sub_1 = rs.getString("sub_1");
-                 String sub_2 = rs.getString("sub_2");
-                 String sub_3 = rs.getString("sub_3");
-                 String sub_4 = rs.getString("sub_4");
-                 String sub_5 = rs.getString("sub_5");
-                 String sub_6 = rs.getString("sub_6");
-                 String sub_7 = rs.getString("sub_7");
-                 String sub_8 = rs.getString("sub_8");
-                 String sub_9 = rs.getString("sub_9");
-                 String sub_10 = rs.getString("sub_10");
+                 while (rs.next()) {
+                     ;
+                     String sub_1 = rs.getString("sub_1");
+                     System.out.println(sub_1);
+                     String sub_2 = rs.getString("sub_2");
+                     String sub_3 = rs.getString("sub_3");
+                     String sub_4 = rs.getString("sub_4");
+                     String sub_5 = rs.getString("sub_5");
+                     String sub_6 = rs.getString("sub_6");
+                     String sub_7 = rs.getString("sub_7");
+                     String sub_8 = rs.getString("sub_8");
+                     String sub_9 = rs.getString("sub_9");
+                     String sub_10 = rs.getString("sub_10");
 
-                 if (!sub_1.isEmpty()){
-                     subjects.add(sub_1);
+                     if (!sub_1.isEmpty()) {
+                         subjects.add(sub_1);
+                     }
+                     if (!sub_2.isEmpty()) {
+                         subjects.add(sub_2);
+                     }
+                     if (!sub_3.isEmpty()) {
+                         subjects.add(sub_3);
+                     }
+                     if (!sub_4.isEmpty()) {
+                         subjects.add(sub_4);
+                     }
+                     if (!sub_5.isEmpty()) {
+                         subjects.add(sub_5);
+                     }
+                     if (!sub_6.isEmpty()) {
+                         subjects.add(sub_6);
+                     }
+                     if (!sub_7.isEmpty()) {
+                         subjects.add(sub_7);
+                     }
+                     if (!sub_8.isEmpty()) {
+                         subjects.add(sub_8);
+                     }
+                     if (!sub_9.isEmpty()) {
+                         subjects.add(sub_9);
+                     }
+                     if (!sub_10.isEmpty()) {
+                         subjects.add(sub_10);
+                     }
                  }
-                 if (!sub_2.isEmpty()){
-                     subjects.add(sub_2);
-                 }
-                 if (!sub_3.isEmpty()){
-                     subjects.add(sub_3);
-                 }
-                 if (!sub_4.isEmpty()){
-                     subjects.add(sub_4);
-                 }
-                 if (!sub_5.isEmpty()){
-                     subjects.add(sub_5);
-                 }
-                 if (!sub_6.isEmpty()){
-                     subjects.add(sub_6);
-                 }
-                 if (!sub_7.isEmpty()){
-                     subjects.add(sub_7);
-                 }
-                 if (!sub_8.isEmpty()){
-                     subjects.add(sub_8);
-                 }
-                 if (!sub_9.isEmpty()){
-                     subjects.add(sub_9);
-                 }
-                 if (!sub_10.isEmpty()){
-                     subjects.add(sub_10);
-                 }
+                 System.out.println(subjects);
 
 
              }
              catch (Exception e){
-                 System.out.println(e);
+                     System.err.println(e.getClass().getName() + ": " + e.getMessage());
+                     System.exit(0);
              }
         }
     }

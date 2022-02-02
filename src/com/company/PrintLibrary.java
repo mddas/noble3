@@ -82,18 +82,18 @@ public class PrintLibrary extends JFrame {
     /**
      * Constructs an instance of the demo.
      */
-    public PrintLibrary() {
+    public PrintLibrary(DefaultTableModel model) {
         super("Table Printing Demo 1");
 
         gradesLabel = new JLabel("Final Grades - CSC 101");
         gradesLabel.setFont(new Font("Dialog", Font.BOLD, 16));
 
-        gradesTable = createTable(new GradesModel());
+        gradesTable = new JTable(model);//createTable(new GradesModel());
         gradesTable.setFillsViewportHeight(true);
         gradesTable.setRowHeight(24);
 
         /* Set a custom renderer on the "Passed" column */
-        gradesTable.getColumn("Passed").setCellRenderer(createPassedColumnRenderer());
+        //gradesTable.getColumn("Passed").setCellRenderer(createPassedColumnRenderer());
 
         scroll = new JScrollPane(gradesTable);
 

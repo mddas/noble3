@@ -134,7 +134,7 @@ public class result_table implements MouseListener {
                     UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
                 } catch (Exception e) {
                 }
-                new PrintLibrary().setVisible(true);
+                new PrintLibrary(model).setVisible(true);
             }
         });
     }

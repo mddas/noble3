@@ -1,8 +1,5 @@
 package Exam;
 
-import Student.gui_content_studentTable;
-import Student.gui_content_student_Advance_search;
-
 import javax.swing.*;
 import java.awt.*;
 
