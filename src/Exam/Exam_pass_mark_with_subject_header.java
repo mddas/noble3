@@ -128,9 +128,11 @@ public class Exam_pass_mark_with_subject_header implements ActionListener, ItemL
 
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == search_B) {
-            //new result_display_jpanel(container,panel_display);
-            JOptionPane.showMessageDialog(container, "search");
-
+            container.remove(2);
+            //new Exam_pass_mark_with_subject_header(container,frame);
+             new Exam_pass_mark_with_subject_table(container,frame,new Rectangle(200,130,1180,600));
+            container.repaint();
+            container.validate();
         } else if (e.getSource() == NewRegister) {
 
             new Exam_pass_mark_with_subject_Add(container,frame,Add_year_terminal_class_dict);

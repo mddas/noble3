@@ -174,7 +174,7 @@ public class PrintLibrary extends JFrame {
         addComponentsToContentPane();
         setContentPane(contentPane);
 
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(700, 600);
         setLocationRelativeTo(null);
     }

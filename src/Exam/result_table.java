@@ -4,6 +4,7 @@ import com.company.DataBase_Mysql;
 import com.company.PrintLibrary;
 
 import javax.swing.*;
+import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import java.awt.*;
@@ -20,6 +21,7 @@ public class result_table implements MouseListener {
     JFrame frame;
     JTable jt;
     JPanel panel;
+    DefaultTableModel model;
     result_table(Container container, JFrame f,String sql){
         frame=f;
         if (sql==null){
@@ -27,8 +29,8 @@ public class result_table implements MouseListener {
 
         }
         ArrayList<String> TempColumn=new ArrayList<>(result_search.subjects);
-
         panel=new JPanel();
+
         panel.setBounds(200,160,1180,600);
         Color wood=new Color(130, 91, 31);
         panel.setBackground(wood);
@@ -36,7 +38,7 @@ public class result_table implements MouseListener {
         //
 
         //result_search.subjects
-        DefaultTableModel model = new DefaultTableModel();
+        model = new DefaultTableModel();
 
         TempColumn.add(0,"Roll");
         TempColumn.add(0,"Name");
@@ -122,21 +124,6 @@ public class result_table implements MouseListener {
         pjp.end();
 
  */
-        //
-
-        //
-        /* Schedule for the GUI to be created and shown on the EDT */
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                /* Don't want bold fonts if we end up using metal */
-                UIManager.put("swing.boldMetal", false);
-                try {
-                    UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-                } catch (Exception e) {
-                }
-                new PrintLibrary(model).setVisible(true);
-            }
-        });
     }
 
     @Override
@@ -147,7 +134,10 @@ public class result_table implements MouseListener {
             JPopupMenu popupmenu = new JPopupMenu("Edit");
             JMenuItem Edit = new JMenuItem("Edit");
             JMenuItem Delete = new JMenuItem("Delete");
+            JMenuItem print_this = new JMenuItem("Print this");
+            JMenuItem print_table = new JMenuItem("Print Table");
             popupmenu.add(Edit); popupmenu.add(Delete);
+            popupmenu.add(print_this);popupmenu.add(print_table);
             jt.addMouseListener(new MouseAdapter() {
                 public void mouseClicked(MouseEvent e) {
                     e = SwingUtilities.convertMouseEvent(
@@ -175,6 +165,29 @@ public class result_table implements MouseListener {
                     }
                 }
             }));
+            print_this.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    JOptionPane.showMessageDialog(frame,"Print this user");
+                }
+            });
+            print_table.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    JOptionPane.showMessageDialog(frame,"Print Table");
+                    SwingUtilities.invokeLater(new Runnable() {
+                        public void run() {
+                            /* Don't want bold fonts if we end up using metal */
+                            UIManager.put("swing.boldMetal", false);
+                            try {
+                                UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+                            } catch (Exception e) {
+                            }
+                            new PrintLibrary(model).setVisible(true);
+                        }
+                    });
+                }
+            });
             // for (int i=0;i< jt.getColumnCount();i++){
             //    System.out.println(jt.getValueAt(rowN, i));
             //}

@@ -22,8 +22,12 @@ public class Exam_pass_mark_with_subject_table implements MouseListener {
         Color wood = new Color(130, 91, 31);
         panel.setBackground(wood);
 //
+        String year_dict=Exam_pass_mark_with_subject_header.Add_year_terminal_class_dict.get("year");
+        String class_dict=Exam_pass_mark_with_subject_header.Add_year_terminal_class_dict.get("class");
+        String terminal_dict=Exam_pass_mark_with_subject_header.Add_year_terminal_class_dict.get("terminal");
         Vector<String> columnData= new Vector<String>();
         DefaultTableModel model = new DefaultTableModel();
+
         model.addColumn("full_mark_id");
         model.addColumn("year");
         model.addColumn("Terminal");
@@ -38,22 +42,25 @@ public class Exam_pass_mark_with_subject_table implements MouseListener {
 
         try {
             ResultSet rs;
-            rs = DataBase_Mysql.SELECT("SELECT * FROM `full_marks`");
+            rs = DataBase_Mysql.SELECT("SELECT * FROM full_marks WHERE year='"+year_dict+"' AND ClassName='"+class_dict+"' AND Terminal='"+terminal_dict+"'");
 
             int i = 1;
             while (rs.next()) {
                 //System.out.println(rs.getString("year")+":"+rs.getString(2));
                 Vector<String> rowdata= new Vector<String>();
                 HashMap<String, String> dict = new HashMap<String, String>();
+
+                rowdata.add(rs.getString("full_mark_id"));
+                rowdata.add(rs.getString("year"));
+                rowdata.add(rs.getString("Terminal"));
+                rowdata.add(rs.getString("ClassName"));
+
                 for (int j = 1; j <= 10; j++) {
                     if (! rs.getString("sub_"+j).isEmpty() && rs.getString("sub_"+j)!=null && rs.getString("sub_"+j)!="") {
                         dict.put(rs.getString("sub_" + j), rs.getString("sub_" + j + "_fm"));
                     }
                 }
-                dict.put("full_mark_id",rs.getString("full_mark_id"));
-                dict.put("year",rs.getString("year"));
-                dict.put("Terminal",rs.getString("Terminal"));
-                dict.put("Class",rs.getString("ClassName"));
+
 
                 for (String key:dict.keySet()) {
                     if (key=="full_mark_id" || key=="Terminal" || key=="Class" || key=="year") {
@@ -64,6 +71,7 @@ public class Exam_pass_mark_with_subject_table implements MouseListener {
                     rowdata.add(dict.get(key));
                 }
                 model.addRow(rowdata);
+                System.out.println(dict);
             }
 
         } catch (Exception e) {
