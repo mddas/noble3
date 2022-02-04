@@ -1,19 +1,16 @@
 package Exam;
 
+import PrintPackages.*;
 import com.company.DataBase_Mysql;
-import com.company.PrintLibrary;
+import PrintPackages.PrintLibrary;
 
 import javax.swing.*;
-import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import java.awt.*;
 import java.awt.event.*;
-import java.sql.Array;
 import java.sql.ResultSet;
-import java.text.MessageFormat;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Vector;
 
@@ -100,30 +97,6 @@ public class result_table implements MouseListener {
 
         jt.addMouseListener(this);
 
-        /*
-
-        try{
-            jt.print(JTable.PrintMode.FIT_WIDTH,new MessageFormat("i am header"),new MessageFormat("i am footer"));
-        }
-        catch (Exception e){
-            System.out.println("printing Error "+e);
-        }
-
-
-         */
-
-
-        //
-
-/*
-        Toolkit tkp = panel.getToolkit();
-        PrintJob pjp = tkp.getPrintJob(frame, null, null);
-        Graphics g = pjp.getGraphics();
-        jt.print(g);
-        g.dispose();
-        pjp.end();
-
- */
     }
 
     @Override
@@ -169,6 +142,20 @@ public class result_table implements MouseListener {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     JOptionPane.showMessageDialog(frame,"Print this user");
+                    String id = jt.getValueAt(rowN, 0).toString();
+                    DefaultTableModel modelMarksheet=GetMarksheetTable.getModelMarksheet(id);
+                    JOptionPane.showMessageDialog(frame,"Print Table");
+                    SwingUtilities.invokeLater(new Runnable() {
+                        public void run() {
+                            /* Don't want bold fonts if we end up using metal */
+                            UIManager.put("swing.boldMetal", false);
+                            try {
+                                UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+                            } catch (Exception e) {
+                            }
+                            new PrintLibrary(modelMarksheet).setVisible(true);
+                        }
+                    });
                 }
             });
             print_table.addActionListener(new ActionListener() {
@@ -188,9 +175,7 @@ public class result_table implements MouseListener {
                     });
                 }
             });
-            // for (int i=0;i< jt.getColumnCount();i++){
-            //    System.out.println(jt.getValueAt(rowN, i));
-            //}
+
 
         }
         if(me.getButton() == MouseEvent.BUTTON2) {

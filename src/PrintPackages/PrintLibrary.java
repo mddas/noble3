@@ -1,4 +1,4 @@
-package com.company;
+package PrintPackages;
 //
 
 /*
@@ -36,7 +36,6 @@ package com.company;
 import javax.swing.*;
 import javax.swing.table.*;
 import javax.swing.event.*;
-import javax.swing.border.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.print.PrinterException;
