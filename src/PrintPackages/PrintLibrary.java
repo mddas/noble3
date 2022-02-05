@@ -84,7 +84,7 @@ public class PrintLibrary extends JFrame {
     public PrintLibrary(DefaultTableModel model) {
         super("Table Printing Demo 1");
 
-        gradesLabel = new JLabel("Final Grades - CSC 101");
+        gradesLabel = new JLabel("<html>Noble English Boarding School <p>Janakpur Dham</p></html>");
         gradesLabel.setFont(new Font("Dialog", Font.BOLD, 16));
 
         gradesTable = new JTable(model);//createTable(new GradesModel());
@@ -107,7 +107,7 @@ public class PrintLibrary extends JFrame {
         });
         headerBox.setToolTipText(tooltipText);
         tooltipText = "Page Header (Use {0} to include page number)";
-        headerField = new JTextField("Final Grades - CSC 101");
+        headerField = new JTextField("<html>Noble English Boarding School <p>Janakpur Dham</p></html>");
         headerField.setToolTipText(tooltipText);
 
         tooltipText = "Include a page footer";
@@ -289,6 +289,7 @@ public class PrintLibrary extends JFrame {
         if (headerBox.isSelected()) {
             /* create a MessageFormat around the header text */
             header = new MessageFormat(headerField.getText());
+            header=new MessageFormat("<html>Noble English Boarding School <p>Janakpur Dham</p></html>");
         }
 
         MessageFormat footer = null;

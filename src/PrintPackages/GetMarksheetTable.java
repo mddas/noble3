@@ -2,6 +2,7 @@ package PrintPackages;
 
 import com.company.DataBase_Mysql;
 
+import javax.security.sasl.SaslServer;
 import javax.swing.table.DefaultTableModel;
 import java.sql.ResultSet;
 import java.util.HashMap;
@@ -11,8 +12,16 @@ public class GetMarksheetTable {
 
     public static DefaultTableModel getModelMarksheet(String id){
         DefaultTableModel model = new DefaultTableModel();
-        Vector<String> rowdata = new Vector<String>();
         HashMap<String, String> StudentDetailList=new HashMap<String,String>();
+
+       // model.addColumn("S.N");
+        model.addColumn("Subjects");
+        model.addColumn("Full Marks");
+        model.addColumn("Pass Marks");
+        model.addColumn("Marks Obtained");
+        model.addColumn("Grade Point");
+        model.addColumn("Grade");
+       // model.addColumn("");
         try {
             ResultSet rs;
             rs = DataBase_Mysql.SELECT("SELECT * FROM Student_Result WHERE student_result_id = '" + id + "'");
@@ -27,14 +36,20 @@ public class GetMarksheetTable {
         }
 
         for (String key : StudentDetailList.keySet()) {
-            if (key == "full_mark_id" || key == "Terminal" || key == "Class" || key == "year") {
-            } else {
-                model.addColumn(key);
-            }
+            Vector<String> rowdata = new Vector<String>();
+            System.out.println(key);
+            rowdata.add(key);
+            rowdata.add("100");
+            rowdata.add("32");
             rowdata.add(StudentDetailList.get(key));
+            System.out.println(StudentDetailList.get(key));
+            rowdata.add("3.7 gpa");
+            rowdata.add("A+");
+            model.addRow(rowdata);
         }
+
         System.out.println(StudentDetailList);
-        model.addRow(rowdata);
+
         return model;
     }
 }
