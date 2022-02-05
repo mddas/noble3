@@ -1,3 +1,4 @@
+/* this page is for print*/
 package PrintPackages;
 //
 
@@ -90,7 +91,19 @@ public class PrintLibrary extends JFrame {
 
         gradesTable = new JTable(model);//createTable(new GradesModel());
         gradesTable.setFillsViewportHeight(true);
-        gradesTable.setRowHeight(24);
+       // gradesTable.setRowHeight(24);
+        Font font1=new Font("Arial",Font.PLAIN,16);
+        gradesTable.setFont(font1);
+        gradesTable.setBounds(10,5,1120,550);
+        gradesTable.setForeground(Color.black);
+        gradesTable.setRowHeight(45);
+        gradesTable.setBackground(Color.cyan);
+
+        //setting table header font */
+        JTableHeader tableHeader = gradesTable.getTableHeader();
+        tableHeader.setFont(font1);
+        tableHeader.setForeground(Color.white);
+        tableHeader.setBackground(new Color(13,91,31));
 
         /* Set a custom renderer on the "Passed" column */
         //gradesTable.getColumn("Passed").setCellRenderer(createPassedColumnRenderer());
@@ -108,7 +121,7 @@ public class PrintLibrary extends JFrame {
         });
         headerBox.setToolTipText(tooltipText);
         tooltipText = "Page Header (Use {0} to include page number)";
-        headerField = new JTextField("<html>Noble English Boarding School <p>Janakpur Dham</p></html>");
+        headerField = new JTextField("Noble Header");
         headerField.setToolTipText(tooltipText);
 
         tooltipText = "Include a page footer";
@@ -286,33 +299,56 @@ public class PrintLibrary extends JFrame {
 
         /* this is for multiple header */
         PrinterJob job = PrinterJob.getPrinterJob();
-        MessageFormat[] header = new MessageFormat[8];
+        MessageFormat[] header = new MessageFormat[13];
         header[0] = new MessageFormat("");
-        header[1] = new MessageFormat("                               Noble Secondary English Boarding School");
-        header[2] = new MessageFormat("                                                       Janakpur Dham-12");
-        header[3]=new MessageFormat("                                            Second Terminal Examination");
-        header[4]=new MessageFormat("");
-        header[5]=new MessageFormat("Class: X");
-        header[6]=new MessageFormat("                                                                        MarkSheet");
-        header[7]=new MessageFormat("The marks secured by sd Roll No :- 3 has passed annual examination of 2078 B.S are given below.");
+        header[1] = new MessageFormat(" ");
+        header[2] = new MessageFormat("                            Noble Secondary English Boarding School");
+        header[3] = new MessageFormat(" ");
+        header[4] = new MessageFormat("                                               Janakpur Dham-12");
+        header[5] = new MessageFormat(" ");
+        header[6]=new MessageFormat("                                        Second Terminal Examination");
+        header[7] = new MessageFormat(" ");
+        header[8]=new MessageFormat("");
+        header[9]=new MessageFormat("Class: X");
+        header[10]=new MessageFormat("                                                                                 MarkSheet");
+        header[11] = new MessageFormat(" ");
+        header[12]=new MessageFormat("The marks secured by sd Roll No :- 3 has passed annual examination of 2078 B.S are given below.");
 
-        MessageFormat[] footer = new MessageFormat[5];
-        footer[0] = new MessageFormat("Date of Issue_______________");
+        MessageFormat[] footer = new MessageFormat[8];
+        footer[0] = new MessageFormat(" __________________                                                                                   ________________");
         footer[1]=new MessageFormat("");
-        footer[2] = new MessageFormat(" _______________                                                                                    ________________");
+        footer[2]=new MessageFormat("        Prepared By                                                                                       Principal");
         footer[3]=new MessageFormat("");
-        footer[4]=new MessageFormat("        Prepared By                                                                                       Principal");
+        footer[4]=new MessageFormat("");
+        footer[5]=new MessageFormat("");
+        footer[6]=new MessageFormat("");
+        footer[7] = new MessageFormat("Date of Issue_______________");
+        //boolean complete=
         job.setPrintable(new MyTablePrintable(gradesTable, JTable.PrintMode.FIT_WIDTH, header, footer));
 
-        if (job.printDialog())
+        if (job.printDialog()) {
             try {
-                System.out.println("Calling PrintJob.print()");
                 job.print();
-                System.out.println("End PrintJob.print()");
+                /* show a success message */
+                JOptionPane.showMessageDialog(this,
+                        "Printing Complete",
+                        "Printing Result",
+                        JOptionPane.INFORMATION_MESSAGE);
+            } catch (PrinterException pe) {
+                /* Printing failed, report to the user */
+                JOptionPane.showMessageDialog(this,
+                        "Printing Failed: " + pe.getMessage(),
+                        "Printing Result",
+                        JOptionPane.ERROR_MESSAGE);
             }
-            catch (PrinterException pe) {
-                System.out.println("Error printing: " + pe);
-            }
+        }
+        else {
+            /* show a message indicating that printing was cancelled */
+            JOptionPane.showMessageDialog(this,
+                    "Printing Cancelled",
+                    "Printing Result",
+                    JOptionPane.INFORMATION_MESSAGE);
+        }
     }
 
     /**

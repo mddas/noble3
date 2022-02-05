@@ -1,3 +1,4 @@
+/* this file is for Multiple header print*/
 /*
  * @(#)MyTablePrintable.java	1.41 05/11/17
  *
@@ -123,7 +124,7 @@ class MyTablePrintable implements Printable {
     private static final int H_F_SPACE = 8;
 
     /** Font size for the header text. */
-    private static final float HEADER_FONT_SIZE = 11.0f;
+    private static final float HEADER_FONT_SIZE = 12.0f;
     /* This is for sub header which have medium size */
     private static final float SubHeader_FONT_SIZE=9.0f;
 
@@ -328,7 +329,7 @@ class MyTablePrintable implements Printable {
         // and then translate downwards
         if (headerText != null) {
             for(int i=0 ; i<headerText.length ; i++)
-                if (i<=3){
+                if (i<=6){
                     printText(g2d, headerText[i], hRect[i], headerFont, i, imgWidth);
                 }
             else {

@@ -21,6 +21,7 @@ public class GetMarksheetTable {
         model.addColumn("Marks Obtained");
         model.addColumn("Grade Point");
         model.addColumn("Grade");
+        model.addColumn("Remarks");
        // model.addColumn("");
         try {
             ResultSet rs;
@@ -37,16 +38,24 @@ public class GetMarksheetTable {
 
         for (String key : StudentDetailList.keySet()) {
             Vector<String> rowdata = new Vector<String>();
-            System.out.println(key);
             rowdata.add(key);
             rowdata.add("100");
             rowdata.add("32");
             rowdata.add(StudentDetailList.get(key));
-            System.out.println(StudentDetailList.get(key));
             rowdata.add("3.7 gpa");
             rowdata.add("A+");
+            rowdata.add((""));
             model.addRow(rowdata);
         }
+        Vector<String> rowdata = new Vector<String>();
+        rowdata.add("Total");
+        rowdata.add("800");
+        rowdata.add("300");
+        rowdata.add("total=650");
+        rowdata.add("total=3.6");
+        rowdata.add("A");
+        rowdata.add("Good");
+        model.addRow(rowdata);
 
         System.out.println(StudentDetailList);
 
