@@ -34,10 +34,14 @@ package PrintPackages;
 
 
 import javax.swing.*;
-import javax.swing.table.*;
-import javax.swing.event.*;
+import javax.swing.event.TableModelListener;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
+import javax.swing.table.TableModel;
 import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.print.PrinterException;
 import java.text.MessageFormat;
 
@@ -54,7 +58,7 @@ import java.text.MessageFormat;
  *
  * @author Shannon Hickey
  */
-public class PrintLibrary extends JFrame {
+public class PrintLibrary_backup extends JFrame {
 
     /* Check mark and x mark items to render the "Passed" column */
     //private static final ImageIcon passedIcon
@@ -81,7 +85,7 @@ public class PrintLibrary extends JFrame {
     /**
      * Constructs an instance of the demo.
      */
-    public PrintLibrary(DefaultTableModel model) {
+    public PrintLibrary_backup(DefaultTableModel model) {
         super("Table Printing Demo 1");
 
         gradesLabel = new JLabel("<html>Noble English Boarding School <p>Janakpur Dham</p></html>");
@@ -129,7 +133,7 @@ public class PrintLibrary extends JFrame {
             public void actionPerformed(ActionEvent ae) {
                 if (!showPrintDialogBox.isSelected()) {
                     JOptionPane.showMessageDialog(
-                            PrintLibrary.this,
+                            PrintLibrary_backup.this,
                             "If the Print Dialog is not shown,"
                                     + " the default printer is used.",
                             "Printing Message",
@@ -146,7 +150,7 @@ public class PrintLibrary extends JFrame {
             public void actionPerformed(ActionEvent ae) {
                 if (!interactiveBox.isSelected()) {
                     JOptionPane.showMessageDialog(
-                            PrintLibrary.this,
+                            PrintLibrary_backup.this,
                             "If non-interactive, the GUI is fully blocked"
                                     + " during printing.",
                             "Printing Message",

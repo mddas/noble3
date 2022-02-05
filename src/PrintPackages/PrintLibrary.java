@@ -39,6 +39,7 @@ import javax.swing.event.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
 import java.text.MessageFormat;
 
 /**
@@ -283,58 +284,32 @@ public class PrintLibrary extends JFrame {
     private void printGradesTable() {
         /* Fetch printing properties from the GUI components */
 
-        MessageFormat header = null;
+        /* this is for multiple header */
+        PrinterJob job = PrinterJob.getPrinterJob();
+        MessageFormat[] header = new MessageFormat[8];
+        header[0] = new MessageFormat("");
+        header[1] = new MessageFormat("                                 Noble English Boarding School");
+        header[2] = new MessageFormat("                                        JanakpurDham 4");
+        header[3]=new MessageFormat("                         Second Terminal Examination MarkSheet");
+        header[4]=new MessageFormat("Name: Manoj Das");
+        header[5]=new MessageFormat("Class: X");
+        header[6]=new MessageFormat("Roll:  2");
+        header[7]=new MessageFormat("Position First");
 
-        /* if we should print a header */
-        if (headerBox.isSelected()) {
-            /* create a MessageFormat around the header text */
-            header = new MessageFormat(headerField.getText());
-            header=new MessageFormat("<html>Noble English Boarding School <p>Janakpur Dham</p></html>");
-        }
+        MessageFormat[] footer = new MessageFormat[2];
+        footer[0] = new MessageFormat("footer 1");
+        footer[1] = new MessageFormat("footer 2");
+        job.setPrintable(new MyTablePrintable(gradesTable, JTable.PrintMode.FIT_WIDTH, header, footer));
 
-        MessageFormat footer = null;
-
-        /* if we should print a footer */
-        if (footerBox.isSelected()) {
-            /* create a MessageFormat around the footer text */
-            footer = new MessageFormat(footerField.getText());
-        }
-
-        boolean fitWidth = fitWidthBox.isSelected();
-        boolean showPrintDialog = showPrintDialogBox.isSelected();
-        boolean interactive = interactiveBox.isSelected();
-
-        /* determine the print mode */
-        JTable.PrintMode mode = fitWidth ? JTable.PrintMode.FIT_WIDTH
-                : JTable.PrintMode.NORMAL;
-
-        try {
-            /* print the table */
-            boolean complete = gradesTable.print(mode, header, footer,
-                    showPrintDialog, null,
-                    interactive, null);
-
-            /* if printing completes */
-            if (complete) {
-                /* show a success message */
-                JOptionPane.showMessageDialog(this,
-                        "Printing Complete",
-                        "Printing Result",
-                        JOptionPane.INFORMATION_MESSAGE);
-            } else {
-                /* show a message indicating that printing was cancelled */
-                JOptionPane.showMessageDialog(this,
-                        "Printing Cancelled",
-                        "Printing Result",
-                        JOptionPane.INFORMATION_MESSAGE);
+        if (job.printDialog())
+            try {
+                System.out.println("Calling PrintJob.print()");
+                job.print();
+                System.out.println("End PrintJob.print()");
             }
-        } catch (PrinterException pe) {
-            /* Printing failed, report to the user */
-            JOptionPane.showMessageDialog(this,
-                    "Printing Failed: " + pe.getMessage(),
-                    "Printing Result",
-                    JOptionPane.ERROR_MESSAGE);
-        }
+            catch (PrinterException pe) {
+                System.out.println("Error printing: " + pe);
+            }
     }
 
     /**
