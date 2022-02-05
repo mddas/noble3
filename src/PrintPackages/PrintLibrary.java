@@ -288,17 +288,20 @@ public class PrintLibrary extends JFrame {
         PrinterJob job = PrinterJob.getPrinterJob();
         MessageFormat[] header = new MessageFormat[8];
         header[0] = new MessageFormat("");
-        header[1] = new MessageFormat("                                 Noble English Boarding School");
-        header[2] = new MessageFormat("                                        JanakpurDham 4");
-        header[3]=new MessageFormat("                         Second Terminal Examination MarkSheet");
-        header[4]=new MessageFormat("Name: Manoj Das");
+        header[1] = new MessageFormat("                               Noble Secondary English Boarding School");
+        header[2] = new MessageFormat("                                                       Janakpur Dham-12");
+        header[3]=new MessageFormat("                                            Second Terminal Examination");
+        header[4]=new MessageFormat("");
         header[5]=new MessageFormat("Class: X");
-        header[6]=new MessageFormat("Roll:  2");
-        header[7]=new MessageFormat("Position First");
+        header[6]=new MessageFormat("                                                                        MarkSheet");
+        header[7]=new MessageFormat("The marks secured by sd Roll No :- 3 has passed annual examination of 2078 B.S are given below.");
 
-        MessageFormat[] footer = new MessageFormat[2];
-        footer[0] = new MessageFormat("footer 1");
-        footer[1] = new MessageFormat("footer 2");
+        MessageFormat[] footer = new MessageFormat[5];
+        footer[0] = new MessageFormat("Date of Issue_______________");
+        footer[1]=new MessageFormat("");
+        footer[2] = new MessageFormat(" _______________                                                                                    ________________");
+        footer[3]=new MessageFormat("");
+        footer[4]=new MessageFormat("        Prepared By                                                                                       Principal");
         job.setPrintable(new MyTablePrintable(gradesTable, JTable.PrintMode.FIT_WIDTH, header, footer));
 
         if (job.printDialog())

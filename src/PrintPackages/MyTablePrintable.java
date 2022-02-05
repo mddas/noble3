@@ -198,6 +198,7 @@ class MyTablePrintable implements Printable {
         // for easy access to these values
         final int imgWidth = (int)pageFormat.getImageableWidth();
         final int imgHeight = (int)pageFormat.getImageableHeight();
+        System.out.println("imgHeight:"+imgHeight);
 
         if (imgWidth <= 0) {
             throw new PrinterException("Width of printable area is too small.");
