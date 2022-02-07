@@ -85,28 +85,39 @@ public class PrintLibrary extends JFrame {
      */
     public PrintLibrary(DefaultTableModel model) {
         super("Table Printing Demo 1");
-
-        gradesLabel = new JLabel("<html>Noble English Boarding School <p>Janakpur Dham</p></html>");
-        gradesLabel.setFont(new Font("Dialog", Font.BOLD, 16));
+/*this is header of Print frame */
+         gradesLabel = new JLabel("            Noble English Boarding School Janakpur Dham");
+         gradesLabel.setFont(new Font("Dialog", Font.BOLD, 20));
 
         gradesTable = new JTable(model);//createTable(new GradesModel());
         gradesTable.setFillsViewportHeight(true);
-       // gradesTable.setRowHeight(24);
-        Font font1=new Font("Arial",Font.PLAIN,16);
+        Font font1=new Font("Arial",Font.PLAIN,28);
         gradesTable.setFont(font1);
         gradesTable.setBounds(10,5,1120,550);
         gradesTable.setForeground(Color.black);
-        gradesTable.setRowHeight(45);
-        gradesTable.setBackground(Color.cyan);
+        gradesTable.setRowHeight(80);
+        //gradesTable.setBackground(Color.cyan);
 
         //setting table header font */
         JTableHeader tableHeader = gradesTable.getTableHeader();
         tableHeader.setFont(font1);
-        tableHeader.setForeground(Color.white);
-        tableHeader.setBackground(new Color(13,91,31));
+        tableHeader.setForeground(Color.BLACK);
+        //tableHeader.setBackground(new Color(13,91,31));
+        tableHeader.setPreferredSize(new Dimension(100, 100));
+        /* hide horizontal line */
+        gradesTable.setShowHorizontalLines(false);
+        gradesTable.setGridColor(Color.orange);
 
-        /* Set a custom renderer on the "Passed" column */
+     /* Set a custom renderer on the "Passed" column */
         //gradesTable.getColumn("Passed").setCellRenderer(createPassedColumnRenderer());
+
+        /* put all Value on center oj column*/
+        DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+        centerRenderer.setHorizontalAlignment( JLabel.CENTER );
+        int numberofcols=gradesTable.getColumnCount();
+        for(int x=0;x<numberofcols;x++){
+            gradesTable.getColumnModel().getColumn(x).setCellRenderer( centerRenderer );
+        }
 
         scroll = new JScrollPane(gradesTable);
 
@@ -295,6 +306,17 @@ public class PrintLibrary extends JFrame {
      * Print the grades table.
      */
     private void printGradesTable() {
+        /*
+        Font font1=new Font("Arial",Font.PLAIN,28);
+        gradesTable.setFont(font1);
+        gradesTable.setBounds(10,5,1120,550);
+        gradesTable.setForeground(Color.black);
+        gradesTable.setRowHeight(80);
+        JTableHeader tableHeader = gradesTable.getTableHeader();
+        tableHeader.setFont(font1);
+        tableHeader.setPreferredSize(new Dimension(100, 100));
+
+         */
         /* Fetch printing properties from the GUI components */
 
         /* this is for multiple header */
@@ -304,13 +326,13 @@ public class PrintLibrary extends JFrame {
         header[1] = new MessageFormat(" ");
         header[2] = new MessageFormat("                            Noble Secondary English Boarding School");
         header[3] = new MessageFormat(" ");
-        header[4] = new MessageFormat("                                               Janakpur Dham-12");
+        header[4] = new MessageFormat("                                             Janakpur Dham-12");
         header[5] = new MessageFormat(" ");
-        header[6]=new MessageFormat("                                        Second Terminal Examination");
+        header[6]=new MessageFormat("                                    Second Terminal Examination");
         header[7] = new MessageFormat(" ");
         header[8]=new MessageFormat("");
         header[9]=new MessageFormat("Class: X");
-        header[10]=new MessageFormat("                                                                                 MarkSheet");
+        header[10]=new MessageFormat("                                                                             GRADE-SHEET");
         header[11] = new MessageFormat(" ");
         header[12]=new MessageFormat("The marks secured by sd Roll No :- 3 has passed annual examination of 2078 B.S are given below.");
 
