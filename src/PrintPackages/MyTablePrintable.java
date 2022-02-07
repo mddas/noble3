@@ -1,4 +1,4 @@
-/* this file is for Multiple header print*/
+/* this file is for Multiple header print this is better than PrintLibrary*/
 /*
  * @(#)MyTablePrintable.java	1.41 05/11/17
  *

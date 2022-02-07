@@ -83,7 +83,8 @@ public class PrintLibrary extends JFrame {
     /**
      * Constructs an instance of the demo.
      */
-    public PrintLibrary(DefaultTableModel model) {
+    private int option;
+    public PrintLibrary(DefaultTableModel model,int option) {
         super("Table Printing Demo 1");
 /*this is header of Print frame */
          gradesLabel = new JLabel("            Noble English Boarding School Janakpur Dham");
@@ -193,6 +194,11 @@ public class PrintLibrary extends JFrame {
                 printGradesTable();
             }
         });
+
+        // option 1 is gui frame with print dialog, option 2 is no gui frame only print dialog,3 means no gui frame no print dialog total silent print.
+        if (option==2){
+            printGradesTable();
+        }
 
         contentPane = new JPanel();
         addComponentsToContentPane();

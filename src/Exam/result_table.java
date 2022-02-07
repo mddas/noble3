@@ -15,6 +15,7 @@ import java.util.HashMap;
 import java.util.Vector;
 
 public class result_table implements MouseListener {
+    int option=1;
     JFrame frame;
     JTable jt;
     JPanel panel;
@@ -153,7 +154,10 @@ public class result_table implements MouseListener {
                                 UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
                             } catch (Exception e) {
                             }
-                            new PrintLibrary(modelMarksheet).setVisible(true);
+
+                            // option 1 is gui frame with print dialog, option 2 is no gui frame only print dialog,3 means no gui frame no print dialog total silent print
+                            new Print_Main_content(modelMarksheet,option);
+
                         }
                     });
                 }
@@ -170,7 +174,7 @@ public class result_table implements MouseListener {
                                 UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
                             } catch (Exception e) {
                             }
-                            new PrintLibrary(model).setVisible(true);
+                            new PrintLibrary(model, option).setVisible(true);
                         }
                     });
                 }
