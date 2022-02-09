@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.Vector;
 
 public class result_table implements MouseListener {
-    int option=1;
+    int option=4;
     JFrame frame;
     JTable jt;
     JPanel panel;

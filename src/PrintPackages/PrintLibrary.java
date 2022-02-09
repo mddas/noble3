@@ -92,11 +92,11 @@ public class PrintLibrary extends JFrame {
 
         gradesTable = new JTable(model);//createTable(new GradesModel());
         gradesTable.setFillsViewportHeight(true);
-        Font font1=new Font("Arial",Font.PLAIN,28);
+        Font font1=new Font("Arial",Font.PLAIN,16);
         gradesTable.setFont(font1);
         gradesTable.setBounds(10,5,1120,550);
         gradesTable.setForeground(Color.black);
-        gradesTable.setRowHeight(80);
+        gradesTable.setRowHeight(45);
         //gradesTable.setBackground(Color.cyan);
 
         //setting table header font */
@@ -312,7 +312,7 @@ public class PrintLibrary extends JFrame {
      * Print the grades table.
      */
     private void printGradesTable() {
-        /*
+
         Font font1=new Font("Arial",Font.PLAIN,28);
         gradesTable.setFont(font1);
         gradesTable.setBounds(10,5,1120,550);
@@ -322,7 +322,7 @@ public class PrintLibrary extends JFrame {
         tableHeader.setFont(font1);
         tableHeader.setPreferredSize(new Dimension(100, 100));
 
-         */
+
         /* Fetch printing properties from the GUI components */
 
         /* this is for multiple header */
