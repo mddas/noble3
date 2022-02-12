@@ -58,7 +58,7 @@ public class result_search implements ActionListener, ItemListener {
         Year_choose_L.setBounds(40, 5, 200, 50);
         panel.add(Year_choose_L);
 
-        String Year_List[] = {"2078","2079","2080","2081"};
+        String Year_List[] = {"NONE","2078","2079","2080","2081"};
         Year_choose_combo = new JComboBox(Year_List);
         Year_choose_combo.setBackground(Color.white);
         Year_choose_combo.setBounds(100, 2, 100, 50);
@@ -161,6 +161,7 @@ public class result_search implements ActionListener, ItemListener {
 
         class_combo.addItemListener(this);
         Terminal_combo.addItemListener(this);
+        Year_choose_combo.addItemListener(this);
 
         if(class_selected!=null)
         {
@@ -174,6 +175,12 @@ public class result_search implements ActionListener, ItemListener {
         }
         else {
             Terminal_combo.setSelectedItem("second");//default select
+        }
+        if (Year_selected!=null){
+            Year_choose_combo.setSelectedItem(Year_selected);//default select
+        }
+        else{
+            Year_choose_combo.setSelectedItem("2079");
         }
     }
 
@@ -276,7 +283,7 @@ public class result_search implements ActionListener, ItemListener {
     @Override
     public void itemStateChanged(ItemEvent itemEvent) {
         System.out.println("item changed md");
-        if (itemEvent.getStateChange() == ItemEvent.SELECTED && class_combo.getSelectedItem().toString()!="NONE"&&Terminal_combo.getSelectedItem().toString()!="NONE") {
+        if (itemEvent.getStateChange() == ItemEvent.SELECTED && class_combo.getSelectedItem().toString()!="NONE"&&Terminal_combo.getSelectedItem().toString()!="NONE" && Year_choose_combo.getSelectedItem().toString()!="NONE") {
             System.out.println("item changed result_search");
             //get selected class and put subjects in global variable.
              if (!subjects.isEmpty()){
