@@ -1,16 +1,14 @@
 package Student;
 
 import Exam.result_search;
-import com.company.DataBase_Mysql;
+import com.Noble.DataBase_Mysql;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import java.awt.*;
-import java.sql.Array;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Vector;
 

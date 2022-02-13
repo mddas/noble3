@@ -1,4 +1,4 @@
-package com.company;
+package com.Noble;
 import java.sql.*;
 import java.sql.DriverManager;
 import java.sql.Connection;

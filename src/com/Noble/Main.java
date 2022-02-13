@@ -1,7 +1,4 @@
-package com.company;
-
-import java.sql.Connection;
-import java.sql.ResultSet;
+package com.Noble;
 
 public class Main {
 

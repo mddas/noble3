@@ -1,5 +1,6 @@
-package com.company;
+package com.Noble;
 import Exam.Exam_Sub_menu;
+import Setting.setting_gui;
 import Student.gui_content_student;
 
 import javax.swing.*;
@@ -9,7 +10,7 @@ import java.awt.event.*;
 
 public class gui_left implements ActionListener {
     JFrame frame;
-    JButton profile_B,student_B,staff_B,exam_B,result_B,bill_B;
+    JButton profile_B,student_B,staff_B,exam_B,setting_B,bill_B;
     Container container;
     public gui_left(JFrame f, Container c){
         frame=f;
@@ -28,18 +29,18 @@ public class gui_left implements ActionListener {
         Font font,font1;
         font=new Font("Arial",Font.BOLD,20);
         font1=new Font("Arial",Font.BOLD,20);
-        ImageIcon homeLogo,studentsLogo,staffLogo,examLogo,resultLogo,billLogo,bgImage1,AdminLogo;
+        ImageIcon homeLogo,studentsLogo,staffLogo,examLogo,SettingLogo,billLogo,bgImage1,AdminLogo;
         homeLogo= new ImageIcon("images/home.png");
         AdminLogo=new ImageIcon("images/teacherLogo_1.png");
         studentsLogo= new ImageIcon("images/studentsLogo_2.jpg");
         staffLogo= new ImageIcon("images/teacherLogo_1.png");
         examLogo= new ImageIcon("images/ExamLogo_1.png");
-        resultLogo= new ImageIcon("images/ResultLogo_1.jpg");
+        SettingLogo= new ImageIcon("images/examManage.png");
         billLogo= new ImageIcon("images/BillLogo_2.png");
         bgImage1=new ImageIcon("images/6_1.jpg");
 
         JLabel bgimage1_L;
-        JLabel profile_L_text,student_L_text,staff_L_text,exam_L_text,result_L_text,bill_L_text;
+        JLabel profile_L_text,student_L_text,staff_L_text,exam_L_text,setting_L,bill_L_text;
 
 
         bgimage1_L=new JLabel("Student Management",bgImage1,JLabel.LEFT);
@@ -108,17 +109,17 @@ public class gui_left implements ActionListener {
         exam_B.setSize(examLogo.getIconWidth(),examLogo.getIconHeight());
         panel.add(exam_B);
 
-        result_L_text=new JLabel("Result");
-        result_L_text.setBounds(112,370,500,500);
-        result_L_text.setFont(font1);
-        result_L_text.setForeground(white);
-        panel.add(result_L_text);
-        result_B=new JButton(resultLogo);
-        result_B.setBounds(10,570,550,500);
-        result_B.setFont(font1);
-        result_B.setForeground(red);
-        result_B.setSize(resultLogo.getIconWidth(),resultLogo.getIconHeight());
-        panel.add(result_B);
+        setting_L=new JLabel("Setting");
+        setting_L.setBounds(112,370,500,500);
+        setting_L.setFont(font1);
+        setting_L.setForeground(white);
+        panel.add(setting_L);
+        setting_B=new JButton(SettingLogo);
+        setting_B.setBounds(10,570,550,500);
+        setting_B.setFont(font1);
+        setting_B.setForeground(red);
+        setting_B.setSize(examLogo.getIconWidth(),examLogo.getIconHeight());
+        panel.add(setting_B);
 
         bgimage1_L.setBounds(0,0,bgImage1.getIconWidth(),bgImage1.getIconHeight());
         bgimage1_L.setFont(font);
@@ -129,7 +130,7 @@ public class gui_left implements ActionListener {
         student_B.addActionListener(this);
         staff_B.addActionListener(this);
         exam_B.addActionListener(this);
-        result_B.addActionListener(this);
+        setting_B.addActionListener(this);
         bill_B.addActionListener(this);
         panel.setLayout(null);
         container.add(panel);
@@ -174,11 +175,12 @@ public class gui_left implements ActionListener {
             container.repaint();
             container.validate();
         }
-        if(e.getSource()==result_B){
-            JOptionPane.showMessageDialog(container,"result_B");
+        if(e.getSource()==setting_B){
+            //JOptionPane.showMessageDialog(container,"setting_B");
             container.removeAll();
 
             new gui_left(frame,container);
+            new setting_gui(frame,container);
             container.repaint();
             container.validate();
         }

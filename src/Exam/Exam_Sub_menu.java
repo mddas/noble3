@@ -1,7 +1,7 @@
 package Exam;
-import com.company.gui_content_home;
-import com.company.gui_left;
-import com.company.gui_right;
+import com.Noble.gui_content_home;
+import com.Noble.gui_left;
+import com.Noble.gui_right;
 
 
 import javax.swing.*;

@@ -1,7 +1,7 @@
 package Exam;
 
 import PrintPackages.*;
-import com.company.DataBase_Mysql;
+import com.Noble.DataBase_Mysql;
 import PrintPackages.PrintLibrary;
 
 import javax.swing.*;

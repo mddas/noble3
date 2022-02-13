@@ -1,4 +1,4 @@
-package com.company;
+package com.Noble;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;

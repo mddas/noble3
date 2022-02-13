@@ -1,6 +1,5 @@
-package com.company;
+package com.Noble;
 
-import Student.Student_search;
 import Student.gui_content_studentTable;
 
 import javax.swing.*;

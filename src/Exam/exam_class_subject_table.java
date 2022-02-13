@@ -1,5 +1,5 @@
 package Exam;
-import com.company.DataBase_Mysql;
+import com.Noble.DataBase_Mysql;
 
 import java.util.*;
 import javax.swing.*;

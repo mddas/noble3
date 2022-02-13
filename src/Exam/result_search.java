@@ -1,5 +1,5 @@
 package Exam;
-import com.company.DataBase_Mysql;
+import com.Noble.DataBase_Mysql;
 
 import javax.swing.*;
 import java.awt.*;
@@ -247,6 +247,10 @@ public class result_search implements ActionListener, ItemListener {
                 //if roll,terminal and year is given and name and class is null then
                 System.out.println("if roll,terminal and year is given and name and class is null then");
                 sql="SELECT * FROM `Student_Result` WHERE Roll='"+Roll+"' AND year='"+Year_jcombo+"' AND Terminal='"+Terminal_jcombo+"'";
+            }
+            else if(Roll=="" && Serch==""){
+                System.out.println("if terminal and year is given and name and roll is null then");
+                sql="SELECT * FROM `Student_Result` WHERE year='"+Year_jcombo+"' AND Terminal='"+Terminal_jcombo+"' AND Student_class='"+class_name+"'";
             }
             else {
                 JOptionPane.showMessageDialog(container, "Search query not found");

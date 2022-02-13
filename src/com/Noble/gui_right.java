@@ -1,8 +1,7 @@
-package com.company;
+package com.Noble;
 
 import javax.swing.*;
 import java.awt.*;
-import java.sql.Connection;
 
 public class gui_right {
 public gui_right(JFrame frame, Container container){

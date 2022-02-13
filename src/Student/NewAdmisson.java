@@ -1,5 +1,5 @@
 package Student;
-import com.company.DataBase_Mysql;
+import com.Noble.DataBase_Mysql;
 
 import javax.swing.*;
 import java.awt.*;

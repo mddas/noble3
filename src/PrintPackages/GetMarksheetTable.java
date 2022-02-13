@@ -1,8 +1,7 @@
 package PrintPackages;
 
-import com.company.DataBase_Mysql;
+import com.Noble.DataBase_Mysql;
 
-import javax.security.sasl.SaslServer;
 import javax.swing.table.DefaultTableModel;
 import java.sql.ResultSet;
 import java.util.HashMap;

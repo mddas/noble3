@@ -1,7 +1,6 @@
-package com.company;
+package com.Noble;
 import javax.swing.*;
 import java.awt.*;
-import Student.*;
 
 public class gui_content_home {
     public gui_content_home(JFrame frame, Container container) {
